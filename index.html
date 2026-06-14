@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Loyal Traders | Truck Dealer Layout</title>
-  <meta name="description" content="Loyal Traders WooCommerce truck dealer homepage layout with empty logo, image, and icon placeholders." />
+  <meta name="description" content="Loyal Traders WooCommerce truck dealer homepage layout with logo attached, with empty image and icon placeholders." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -62,23 +62,31 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 14px;
       min-width: 240px;
     }
 
     .logo-placeholder {
-      width: 78px;
-      height: 78px;
-      border: 1px dashed rgba(255,255,255,.45);
+      width: 68px;
+      height: 68px;
       border-radius: 50%;
-      background: rgba(255,255,255,.04);
-      display: grid;
-      place-items: center;
-      color: rgba(255,255,255,.55);
-      font-size: 10px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #111;
+      border: 1px solid rgba(255,255,255,.20);
+      box-shadow: 0 14px 32px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.06);
+      flex: 0 0 auto;
+    }
+
+    .logo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.48);
+      transform-origin: center;
     }
 
     .brand-text {
@@ -553,8 +561,8 @@
     }
 
     .footer-logo-row .logo-placeholder {
-      width: 70px;
-      height: 70px;
+      width: 58px;
+      height: 58px;
     }
 
     .footer-logo-row .brand-text {
@@ -631,7 +639,7 @@
     @media (max-width: 720px) {
       .container { width: min(100% - 28px, var(--container)); }
       .header-inner { min-height: 76px; }
-      .logo-placeholder { width: 58px; height: 58px; font-size: 9px; }
+      .logo-placeholder { width: 54px; height: 54px; font-size: 9px; }
       .brand-text { font-size: 15px; letter-spacing: 5px; }
       h1 { letter-spacing: -2px; }
       .hero-inner { min-height: auto; padding: 46px 0 50px; }
@@ -655,26 +663,296 @@
       .footer-bottom { flex-direction: column; }
       .footer-links { flex-wrap: wrap; }
     }
+  
+
+    /* Header and footer redesign overrides */
+    .site-header {
+      background: linear-gradient(180deg, #111111 0%, #050505 100%);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 16px 44px rgba(0,0,0,.22);
+    }
+
+    .header-top {
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+    }
+
+    .header-top-inner {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: rgba(255,255,255,.72);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .header-top-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .header-top a { color: rgba(255,255,255,.82); }
+
+    .header-inner {
+      min-height: 116px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 26px;
+      padding: 16px 0;
+    }
+
+    .header-side {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .header-side.right {
+      justify-content: flex-end;
+    }
+
+    .brand {
+      min-width: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .logo-shell {
+      width: 94px;
+      height: 94px;
+      border-radius: 50%;
+      padding: 9px;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,.14), rgba(255,255,255,.04) 45%, rgba(0,0,0,.2) 100%);
+      border: 1px solid rgba(255,255,255,.20);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.10),
+        inset 0 0 0 1px rgba(255,255,255,.04),
+        0 18px 34px rgba(0,0,0,.30);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .logo-shell img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transform: none;
+    }
+
+    .brand-copy,
+    .footer-brand-copy {
+      display: grid;
+      gap: 3px;
+    }
+
+    .brand-copy {
+      text-align: center;
+    }
+
+    .brand-kicker {
+      color: rgba(255,255,255,.56);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+    }
+
+    .brand-name {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 6px;
+      line-height: 1;
+    }
+
+    .nav {
+      gap: 26px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .8px;
+    }
+
+    .nav a {
+      color: rgba(255,255,255,.85);
+      padding: 10px 0;
+    }
+
+    .nav a.active::after,
+    .nav a:hover::after {
+      bottom: 0;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(255,255,255,.85), rgba(255,255,255,.4));
+    }
+
+    .header-btn {
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #050505;
+      border: 1px solid #ffffff;
+      box-shadow: 0 14px 28px rgba(0,0,0,.18);
+    }
+
+    .header-btn:hover {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255,255,255,.55);
+      transform: translateY(-2px);
+    }
+
+    .mobile-menu-icon {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+
+    .footer-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .footer-logo-shell {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      padding: 7px;
+    }
+
+    .footer-brand-copy .brand-name {
+      font-size: 17px;
+      letter-spacing: 5px;
+    }
+
+    .footer-brand-copy .brand-kicker {
+      font-size: 9px;
+      letter-spacing: 2.1px;
+    }
+
+    @media (max-width: 1050px) {
+      .header-top { display: none; }
+      .header-inner {
+        grid-template-columns: 1fr auto;
+        min-height: 92px;
+        padding: 14px 0;
+      }
+      .header-side.left,
+      .header-side.right .nav,
+      .header-btn { display: none; }
+      .header-side.right {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .mobile-menu-icon { display: grid; }
+      .brand {
+        justify-self: start;
+        flex-direction: row;
+        align-items: center;
+        gap: 14px;
+      }
+      .brand-copy { text-align: left; }
+      .hero-inner { grid-template-columns: 1fr; padding-top: 58px; text-align: left; }
+      .hero-visual { min-height: 290px; }
+      .image-placeholder { min-height: 320px; }
+      .categories { grid-template-columns: repeat(3, 1fr); }
+      .inventory-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 0; }
+      .why-card:nth-child(2) { border-right: 0; }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .header-inner {
+        min-height: 82px;
+        gap: 14px;
+      }
+      .brand { gap: 12px; }
+      .logo-shell {
+        width: 64px;
+        height: 64px;
+        padding: 6px;
+        border-radius: 50%;
+      }
+      .brand-kicker {
+        font-size: 8px;
+        letter-spacing: 1.8px;
+      }
+      .brand-name {
+        font-size: 14px;
+        letter-spacing: 3.6px;
+      }
+      .footer-logo-shell {
+        width: 62px;
+        height: 62px;
+      }
+      .footer-brand-copy .brand-name {
+        font-size: 14px;
+        letter-spacing: 3.4px;
+      }
+      .footer-brand-copy .brand-kicker {
+        font-size: 8px;
+        letter-spacing: 1.7px;
+      }
+    }
+
   </style>
 </head>
 <body>
   <header class="site-header">
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <div>Premium Truck Inventory • Trusted Commercial Dealers</div>
+        <div class="header-top-links">
+          <a href="tel:18001234567">(800) 123-4567</a>
+          <a href="mailto:info@loyaltraders.com">info@loyaltraders.com</a>
+        </div>
+      </div>
+    </div>
     <div class="container header-inner">
+      <div class="header-side left">
+        <nav class="nav" aria-label="Primary navigation left">
+          <a href="#" class="active">Home</a>
+          <a href="#inventory">Trucks</a>
+          <a href="#financing">Financing</a>
+        </nav>
+      </div>
+
       <a class="brand" href="#" aria-label="Loyal Traders homepage">
-        <span class="logo-placeholder">Logo</span>
-        <span class="brand-text"><span>LOYAL</span><span>TRADERS</span></span>
+        <span class="logo-shell"><img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders Logo"></span>
+        <span class="brand-copy">
+          <span class="brand-kicker">Premium Truck Dealer</span>
+          <span class="brand-name">LOYAL TRADERS</span>
+        </span>
       </a>
 
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#" class="active">Home</a>
-        <a href="#inventory">Trucks</a>
-        <a href="#financing">Financing</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <a class="header-btn" href="#inventory">View Trucks <span>→</span></a>
-      <div class="mobile-menu-icon" aria-hidden="true">☰</div>
+      <div class="header-side right">
+        <nav class="nav nav-right" aria-label="Primary navigation right">
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="header-btn" href="#inventory">View Trucks <span>→</span></a>
+        <div class="mobile-menu-icon" aria-hidden="true">☰</div>
+      </div>
     </div>
   </header>
 
@@ -821,14 +1099,17 @@
     <div class="container footer-main">
       <div class="footer-about">
         <div class="footer-logo-row">
-          <span class="logo-placeholder">Logo</span>
-          <span class="brand-text"><span>LOYAL</span><span>TRADERS</span></span>
+          <span class="logo-shell footer-logo-shell"><img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders Logo"></span>
+          <span class="footer-brand-copy">
+            <span class="brand-kicker">Premium Truck Dealer</span>
+            <span class="brand-name">LOYAL TRADERS</span>
+          </span>
         </div>
         <p>Your trusted source for quality commercial trucks and dependable service across the nation.</p>
         <div class="socials"><span>f</span><span>◎</span><span>▶</span><span>in</span></div>
       </div>
       <div class="footer-col"><h3>Quick Links</h3><ul><li><a href="#">Home</a></li><li><a href="#inventory">Trucks</a></li><li><a href="#financing">Financing</a></li><li><a href="#about">About Us</a></li><li><a href="#contact">Contact</a></li></ul></div>
-      <div class="footer-col"><h3>Truck Types</h3><ul><li>Pickup Trucks</li><li>Box Trucks</li><li>Dump Trucks</li><li>Flatbed Trucks</li><li>Cargo Vans</li><li>Semi Trucks</li><li>Tow Trucks</li><li>Refrigerated Trucks</li><li>Tanker Trucks</li><li>Utility Trucks</li><li>Bucket Trucks</li><li>Crane Trucks</li></ul></div>
+      <div class="footer-col"><h3>Truck Types</h3><ul><li>Pickup Trucks</li><li>Box Trucks</li><li>Dump Trucks</li><li>Flatbed Trucks</li><li>Cargo Vans</li><li>Semi Trucks</li></ul></div>
       <div class="footer-col"><h3>Contact Us</h3><ul><li>☎ (800) 123-4567</li><li>✉ info@loyaltraders.com</li><li>⌖ 123 Truck Way,<br>Houston, TX 77001</li></ul></div>
     </div>
     <div class="container footer-bottom">
