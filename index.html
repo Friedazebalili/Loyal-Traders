@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loyal Traders | Premium Trucks. Trusted Deals.</title>
+  <style>
+    :root{
+      --black:#090909;
+      --ink:#111111;
+      --text:#2e2e2e;
+      --muted:#77736c;
+      --gold:#c89437;
+      --gold-dark:#a8792a;
+      --gold-soft:#f4ead7;
+      --cream:#fbfaf7;
+      --soft:#f6f3ee;
+      --line:#e8e2d8;
+      --white:#ffffff;
+      --shadow:0 26px 70px rgba(15,15,15,.10);
+      --shadow-soft:0 16px 46px rgba(15,15,15,.075);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial, Helvetica, sans-serif;background:var(--white);color:var(--ink);line-height:1.5;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    .top-offer{height:38px;background:var(--black);color:#f6f0e7;display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;text-align:center;padding:0 18px}
+    .top-offer span{color:var(--gold)}
+    .nav{height:86px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 54px;position:sticky;top:0;z-index:50;box-shadow:0 12px 40px rgba(0,0,0,.045)}
+    .brand{display:flex;align-items:center;gap:14px;min-width:292px}
+    .brand img{width:58px;height:58px;border-radius:50%;object-fit:cover;box-shadow:0 8px 22px rgba(0,0,0,.15)}
+    .brand-name{font-size:22px;font-weight:900;letter-spacing:3.8px;line-height:1;color:#161616}
+    .brand-sub{font-family:Georgia,serif;font-size:12px;color:var(--gold-dark);font-style:italic;letter-spacing:.4px;margin-top:6px}
+    .nav-links{display:flex;align-items:center;gap:31px;font-size:11px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#151515}
+    .nav-links a{position:relative;transition:.2s}
+    .nav-links a:hover{color:var(--gold-dark)}
+    .nav-cta{height:46px;padding:0 22px;display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--gold),#d6aa57);color:#fff!important;border:1px solid var(--gold);box-shadow:0 10px 24px rgba(200,148,55,.18)}
+    .menu{display:none;font-size:28px;color:#111}
+    .hero{min-height:600px;display:grid;grid-template-columns:48% 52%;position:relative;background:linear-gradient(90deg,#fff 0%,#fff 70%,rgba(255,255,255,0) 100%);overflow:hidden}
+    .hero:before{content:"LT";position:absolute;left:31%;top:18px;font-size:320px;line-height:.8;font-weight:900;color:#0b0b0b;opacity:.035;letter-spacing:-28px;z-index:0;pointer-events:none}
+    .hero-copy{position:relative;z-index:4;padding:82px 34px 82px 58px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(90deg,#fff 0%,#fff 76%,rgba(255,255,255,.72) 100%)}
+    .eyebrow{display:flex;align-items:center;gap:16px;color:var(--gold-dark);font-size:12px;font-weight:900;letter-spacing:2.8px;text-transform:uppercase;margin-bottom:17px}
+    .eyebrow:after{content:"";width:54px;height:2px;background:var(--gold)}
+    .headline{font-family:'Arial Narrow',Impact,Arial,sans-serif;font-size:66px;line-height:.92;letter-spacing:-.8px;text-transform:uppercase;max-width:555px;color:#0b0b0b}
+    .headline span{color:var(--gold-dark)}
+    .direct{font-family:Georgia,serif;font-size:28px;font-style:italic;line-height:1.22;margin-top:22px;max-width:500px;color:#191919}
+    .subhead{font-size:13px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;margin:26px 0 18px;color:#141414}
+    .hero-copy p{max-width:450px;font-size:15px;color:#343434;margin-bottom:30px}
+    .hero-copy p mark{background:linear-gradient(transparent 61%,rgba(200,148,55,.28) 61%);color:var(--gold-dark);font-weight:800;padding:0 2px}
+    .actions{display:flex;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+    .btn{height:50px;padding:0 25px;display:inline-flex;align-items:center;justify-content:center;gap:17px;border-radius:0;font-size:12px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;transition:.22s;white-space:nowrap}
+    .btn-primary{background:linear-gradient(135deg,var(--gold),#d8ad59);color:#fff;border:1px solid var(--gold)}
+    .btn-outline{border:1px solid #191919;color:#191919;background:#fff}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.12)}
+    .rating{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;flex-wrap:wrap}
+    .stars{color:var(--gold);font-size:17px;letter-spacing:1px}
+    .hero-image{position:relative;min-height:600px;overflow:hidden}
+    .hero-image:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.86) 6%,rgba(255,255,255,.30) 28%,rgba(255,255,255,0) 47%);z-index:2}
+    .hero-image:after{content:"";position:absolute;right:34px;bottom:32px;width:86px;height:86px;background:url('assets/lt-logo.png') center/cover;border-radius:50%;z-index:3;box-shadow:0 16px 42px rgba(0,0,0,.22);opacity:.95}
+    .hero-image img{width:100%;height:100%;object-fit:cover;filter:saturate(.96) contrast(1.04)}
+    .section{padding:76px 54px;background:#fff}
+    .section-inner{max-width:1180px;margin:0 auto}
+    .section-top{text-align:center;margin-bottom:34px}
+    .small-gold{font-size:12px;color:var(--gold-dark);font-weight:900;letter-spacing:2.6px;text-transform:uppercase;margin-bottom:8px}
+    .section h2{font-size:42px;line-height:1.05;letter-spacing:-.8px;text-transform:uppercase;color:#101010}
+    .section-lead{max-width:570px;margin:13px auto 0;color:#68645f;font-size:15px}
+    .type-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+    .type-card{min-height:190px;border:1px solid var(--line);background:#fff;padding:24px 14px 22px;text-align:center;transition:.24s;box-shadow:0 10px 34px rgba(0,0,0,.035)}
+    .type-card:hover{transform:translateY(-5px);border-color:rgba(200,148,55,.55);box-shadow:var(--shadow-soft)}
+    .truck-icon{height:54px;margin:0 auto 18px;color:var(--gold-dark)}
+    .truck-icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+    .type-card h3{font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;color:#111}
+    .type-card p{font-size:12px;color:#66615c;min-height:36px;max-width:150px;margin:0 auto}
+    .type-card a{display:inline-block;margin-top:16px;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:var(--gold-dark);font-weight:900}
+    .inventory{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .inventory-head{display:flex;align-items:flex-end;justify-content:space-between;gap:25px;margin-bottom:28px}
+    .inventory-head h2{text-align:left}
+    .view-link{font-size:12px;font-weight:900;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold-dark);display:flex;gap:14px;align-items:center;white-space:nowrap}
+    .truck-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .truck-card{background:#fff;border:1px solid var(--line);box-shadow:0 14px 38px rgba(20,20,20,.05);transition:.24s;overflow:hidden}
+    .truck-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-soft);border-color:rgba(200,148,55,.45)}
+    .truck-photo{height:150px;background:linear-gradient(135deg,#efede8,#fff);position:relative;overflow:hidden}
+    .truck-photo:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 28%,rgba(200,148,55,.14),transparent 30%)}
+    .truck-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.92)}
+    .truck-card:nth-child(2) .truck-photo img,.truck-card:nth-child(4) .truck-photo img{transform:scaleX(-1)}
+    .truck-info{padding:18px 18px 16px}
+    .truck-info h3{font-size:15px;line-height:1.25;text-transform:uppercase;letter-spacing:.2px;margin-bottom:12px}
+    .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;color:#68645f;font-size:11px}
+    .price-row{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px}
+    .price{font-size:20px;font-weight:900;color:var(--gold-dark)}
+    .details{font-size:10px;font-weight:900;letter-spacing:1.3px;text-transform:uppercase;color:#111}
+    .trust{padding:58px 54px;background:#fff}
+    .trust-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:#fff;box-shadow:0 16px 48px rgba(15,15,15,.055)}
+    .trust-item{padding:30px 28px;display:grid;grid-template-columns:52px 1fr;gap:17px;align-items:start;border-right:1px solid var(--line)}
+    .trust-item:last-child{border-right:0}
+    .round-icon{width:52px;height:52px;border-radius:50%;background:#fbfaf7;color:var(--gold-dark);border:1px solid var(--line);display:grid;place-items:center}
+    .round-icon svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .trust-item h3{font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+    .trust-item p{font-size:12.5px;color:#5d5852}
+    .finance{padding:0 54px 76px;background:#fff}
+    .finance-card{max-width:1180px;margin:0 auto;background:#0a0a0a;color:#fff;min-height:285px;display:grid;grid-template-columns:44% 56%;overflow:hidden;box-shadow:var(--shadow)}
+    .finance-copy{padding:56px 54px;display:flex;flex-direction:column;justify-content:center}
+    .finance-copy h2{font-size:38px;text-transform:uppercase;line-height:1.02;margin:8px 0 12px}
+    .finance-copy p{color:#dedede;font-size:14px;max-width:390px;margin-bottom:26px}
+    .finance .btn-outline{background:transparent;color:#fff;border-color:#fff}
+    .finance-image{position:relative;overflow:hidden}
+    .finance-image:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0a0a0a 0%,rgba(10,10,10,.32) 42%,rgba(10,10,10,0) 78%);z-index:2}
+    .finance-image img{width:100%;height:100%;object-fit:cover}
+    .process{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .step{background:#fff;border:1px solid var(--line);padding:30px;min-height:190px;box-shadow:0 14px 36px rgba(0,0,0,.045)}
+    .step-number{font-family:Georgia,serif;font-size:42px;line-height:1;color:var(--gold-dark);margin-bottom:14px}
+    .step h3{font-size:16px;text-transform:uppercase;letter-spacing:.7px;margin-bottom:9px}
+    .step p{font-size:14px;color:#5e5954}
+    .reviews{background:#fff;padding-top:70px}
+    .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+    .review{border:1px solid var(--line);padding:28px;background:#fff;box-shadow:0 12px 34px rgba(0,0,0,.04)}
+    .review .stars{font-size:15px;margin-bottom:12px;display:block}
+    .review p{font-size:14px;color:#4d4944;margin-bottom:18px}
+    .review strong{font-size:12px;text-transform:uppercase;letter-spacing:1px}
+    .final-cta{padding:34px 54px;background:#fff;border-top:1px solid var(--line)}
+    .final-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:26px;background:#fbfaf7;border:1px solid var(--line);padding:26px 34px}
+    .final-inner h2{font-size:24px;text-transform:uppercase;letter-spacing:.5px}
+    .final-inner p{font-size:14px;color:#625d57;margin-top:4px}
+    footer{background:#050505;color:#fff;padding:44px 54px 22px}
+    .footer-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1.2fr;gap:34px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.13)}
+    .footer-brand{display:flex;gap:15px;align-items:center;margin-bottom:14px}
+    .footer-brand img{width:66px;height:66px;border-radius:50%;object-fit:cover}
+    .footer-title{font-size:22px;letter-spacing:3px;line-height:1}
+    .footer-sub{font-family:Georgia,serif;color:#d5c29d;font-size:13px;font-style:italic;margin-top:6px}
+    .footer-copy{max-width:270px;color:#bdbdbd;font-size:13px}
+    .foot h4{font-size:12px;text-transform:uppercase;letter-spacing:1.4px;margin-bottom:13px;color:#fff}
+    .foot a,.foot p{display:block;color:#c9c9c9;font-size:12px;margin:7px 0}
+    .copyright{max-width:1180px;margin:16px auto 0;color:#777;font-size:11px}
+    @media(max-width:1080px){.nav{padding:0 24px}.nav-links{gap:18px}.headline{font-size:56px}.type-grid{grid-template-columns:repeat(3,1fr)}.truck-grid{grid-template-columns:repeat(2,1fr)}.trust-grid{grid-template-columns:repeat(2,1fr)}.trust-item:nth-child(2){border-right:0}.trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}.footer-grid{grid-template-columns:1fr 1fr 1fr}}
+    @media(max-width:860px){.top-offer{height:auto;min-height:38px;font-size:10px}.nav{height:74px}.brand{min-width:0}.brand img{width:48px;height:48px}.brand-name{font-size:18px;letter-spacing:2.4px}.brand-sub{font-size:10px}.nav-links{display:none}.menu{display:block}.hero{grid-template-columns:1fr}.hero-copy{padding:58px 24px;background:#fff}.hero-image{min-height:390px;order:-1}.hero-image:before{background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(255,255,255,0))}.hero-image:after{width:66px;height:66px;right:22px;bottom:22px}.headline{font-size:46px}.direct{font-size:23px}.section,.trust,.finance,.final-cta,footer{padding-left:24px;padding-right:24px}.inventory-head{display:block}.view-link{margin-top:16px}.finance-card{grid-template-columns:1fr}.finance-image{height:260px;order:-1}.steps,.review-grid{grid-template-columns:1fr}.final-inner{display:block}.final-inner .btn{margin-top:18px}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.hero-copy{padding:46px 20px}.headline{font-size:39px}.direct{font-size:20px}.actions{display:grid}.btn{width:100%}.type-grid,.truck-grid,.trust-grid{grid-template-columns:1fr}.trust-item{border-right:0!important;border-bottom:1px solid var(--line)}.trust-item:last-child{border-bottom:0}.section h2{font-size:32px}.finance-copy{padding:42px 28px}.finance-copy h2{font-size:31px}.final-inner{padding:24px}.footer-grid{grid-template-columns:1fr}.top-offer{letter-spacing:.9px}}
+  </style>
+</head>
+<body>
+  <div class="top-offer">◆ Limited Time Offer: Get pre-approved fast and save up to <span>$7,500</span> on select trucks</div>
+
+  <header class="nav">
+    <a class="brand" href="#">
+      <img src="assets/lt-logo.png" alt="Loyal Traders logo">
+      <div>
+        <div class="brand-name">LOYAL TRADERS</div>
+        <div class="brand-sub">Premium Trucks. Trusted Deals.</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#inventory">Inventory</a>
+      <a href="#types">Truck Types</a>
+      <a href="#financing">Financing</a>
+      <a href="#process">Process</a>
+      <a href="#reviews">Reviews</a>
+      <a class="nav-cta" href="#contact">Get Approved <span>→</span></a>
+    </nav>
+    <div class="menu">☰</div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">Premium Trucks. Trusted Deals.</div>
+        <h1 class="headline">The Right Truck <span>Changes Everything.</span></h1>
+        <div class="direct">Choose the truck that works as hard as you do.</div>
+        <div class="subhead">Built for your job. Backed by loyalty.</div>
+        <p>You already know what the job demands. Loyal Traders makes it easier to compare clean, dependable trucks by type, budget, and purpose so you can find <mark>the right truck without the guesswork</mark>.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#inventory">Browse Inventory <span>→</span></a>
+          <a class="btn btn-outline" href="#types">Shop By Type <span>→</span></a>
+        </div>
+        <div class="rating"><span class="stars">★★★★★</span><span>4.9/5 from 1,200+ happy drivers</span></div>
+      </div>
+      <div class="hero-image">
+        <img src="assets/hero-truck.jpg" alt="Premium black truck driving through the mountains">
+      </div>
+    </section>
+
+    <section class="section" id="types">
+      <div class="section-inner">
+        <div class="section-top">
+          <div class="small-gold">Shop by truck type</div>
+          <h2>Find the truck shape<br>that fits your work.</h2>
+          <p class="section-lead">Clean category cards with truck-style logos make it easy for visitors to browse inventory by the type of truck they need.</p>
+        </div>
+        <div class="type-grid">
+          <article class="type-card">
+            <div class="truck-icon"><svg viewBox="0 0 96 56"><path d="M8 35h8l7-14h35v25H8z"/><path d="M58 28h15l10 10v8H58z"/><circle cx="27" cy="46" r="6"/><circle cx="70" cy="46" r="6"/><path d="M28 21v13M43 21v13"/></svg></div>
+            <h3>Light Duty</h3><p>Daily work, errands, and dependable driving.</p><a href="#inventory">View Trucks →</a>
+          </article>
+          <article class="type-card">
+            <div class="truck-icon"><svg viewBox="0 0 96 56"><path d="M9 31h16l6-14h23v29H9z"/><path d="M54 24h23v22H54z"/><circle cx="24" cy="46" r="6"/><circle cx="67" cy="46" r="6"/><path d="M30 17v13M43 17v13"/></svg></div>
+            <h3>Medium Duty</h3><p>More power for bigger loads and routes.</p><a href="#inventory">View Trucks →</a>
+          </article>
+          <article class="type-card">
+            <div class="truck-icon"><svg viewBox="0 0 96 56"><path d="M7 34h18l6-16h23v28H7z"/><path d="M54 27h20l12 10v9H54z"/><path d="M67 15v12M73 15v12"/><circle cx="24" cy="46" r="6"/><circle cx="68" cy="46" r="6"/><circle cx="82" cy="46" r="6"/></svg></div>
+            <h3>Heavy Duty</h3><p>Strong trucks for demanding business use.</p><a href="#inventory">View Trucks →</a>
+          </article>
+          <article class="type-card">
+            <div class="truck-icon"><svg viewBox="0 0 96 56"><path d="M10 35h18l6-14h45v25H10z"/><path d="M78 28h9v18h-9z"/><circle cx="27" cy="46" r="6"/><circle cx="68" cy="46" r="6"/><path d="M36 21v14h32V21"/></svg></div>
+            <h3>Box Trucks</h3><p>Enclosed cargo space for deliveries.</p><a href="#inventory">View Trucks →</a>
+          </article>
+          <article class="type-card">
+            <div class="truck-icon"><svg viewBox="0 0 96 56"><path d="M10 36h16l7-15h18v25H10z"/><path d="M51 20l33 8-8 18H51z"/><circle cx="25" cy="46" r="6"/><circle cx="61" cy="46" r="6"/><circle cx="77" cy="46" r="6"/></svg></div>
+            <h3>Dump Trucks</h3><p>Move, haul, unload, and get it done.</p><a href="#inventory">View Trucks →</a>
+          </article>
+          <article class="type-card">
+            <div class="truck-icon"><svg viewBox="0 0 96 56"><path d="M9 33h14l6-16h22v29H9z"/><path d="M51 33h36v13H51z"/><circle cx="24" cy="46" r="6"/><circle cx="61" cy="46" r="6"/><circle cx="80" cy="46" r="6"/><path d="M33 17v14M44 17v14"/></svg></div>
+            <h3>Tractors</h3><p>Long-haul power and commercial performance.</p><a href="#inventory">View Trucks →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section inventory" id="inventory">
+      <div class="section-inner">
+        <div class="inventory-head">
+          <div>
+            <div class="small-gold">Featured inventory</div>
+            <h2>Quality trucks.<br>Ready to work.</h2>
+          </div>
+          <a class="view-link" href="#contact">View all inventory <span>→</span></a>
+        </div>
+        <div class="truck-grid">
+          <article class="truck-card">
+            <div class="truck-photo"><img src="assets/hero-truck.jpg" alt="Ford F-250 truck"></div>
+            <div class="truck-info"><h3>2022 Ford F-250 Crew Cab</h3><div class="meta"><span>42,560 mi</span><span>Diesel</span><span>Auto</span></div><div class="price-row"><span class="price">$49,900</span><a class="details" href="#contact">Details →</a></div></div>
+          </article>
+          <article class="truck-card">
+            <div class="truck-photo"><img src="assets/cta-truck.jpg" alt="Semi sleeper truck"></div>
+            <div class="truck-info"><h3>2021 Kenworth T680 Sleeper</h3><div class="meta"><span>128,885 mi</span><span>Diesel</span><span>Auto</span></div><div class="price-row"><span class="price">$69,900</span><a class="details" href="#contact">Details →</a></div></div>
+          </article>
+          <article class="truck-card">
+            <div class="truck-photo"><img src="assets/hero-truck.jpg" alt="Heavy duty truck"></div>
+            <div class="truck-info"><h3>2020 Freightliner Box Truck</h3><div class="meta"><span>88,210 mi</span><span>Diesel</span><span>Auto</span></div><div class="price-row"><span class="price">$59,900</span><a class="details" href="#contact">Details →</a></div></div>
+          </article>
+          <article class="truck-card">
+            <div class="truck-photo"><img src="assets/cta-truck.jpg" alt="Dump truck"></div>
+            <div class="truck-info"><h3>2019 Mack Granite Dump</h3><div class="meta"><span>76,552 mi</span><span>Diesel</span><span>Auto</span></div><div class="price-row"><span class="price">$94,900</span><a class="details" href="#contact">Details →</a></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust" id="about">
+      <div class="trust-grid">
+        <div class="trust-item"><div class="round-icon"><svg viewBox="0 0 48 48"><path d="M24 5l16 7v10c0 10-7 18-16 21C15 40 8 32 8 22V12z"/><path d="M16 24l5 5 11-12"/></svg></div><div><h3>Certified Quality</h3><p>Every truck is inspected, serviced, and road-tested before sale.</p></div></div>
+        <div class="trust-item"><div class="round-icon"><svg viewBox="0 0 48 48"><path d="M24 6v36M32 14c-4-4-16-4-16 4 0 9 17 5 17 15 0 8-13 8-19 2"/></svg></div><div><h3>Fair Pricing</h3><p>Clear pricing with no hidden fees and no pressure tactics.</p></div></div>
+        <div class="trust-item"><div class="round-icon"><svg viewBox="0 0 48 48"><path d="M8 36V17h25l7 8v11z"/><path d="M33 17v8h7"/><circle cx="17" cy="36" r="5"/><circle cx="35" cy="36" r="5"/></svg></div><div><h3>Delivery Help</h3><p>Nationwide delivery support to help get your truck to you.</p></div></div>
+        <div class="trust-item"><div class="round-icon"><svg viewBox="0 0 48 48"><path d="M15 25l8 8c2 2 5 2 7 0l8-8"/><path d="M4 23l9-10 8 8M44 23l-9-10-8 8"/></svg></div><div><h3>Loyal Support</h3><p>Helpful service before, during, and after the sale.</p></div></div>
+      </div>
+    </section>
+
+    <section class="finance" id="financing">
+      <div class="finance-card">
+        <div class="finance-copy">
+          <div class="small-gold">Flexible financing options</div>
+          <h2>Get approved fast.<br>Drive sooner.</h2>
+          <p>Simple applications, competitive rates, and truck options that fit your business budget.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Get Pre-Approved <span>→</span></a>
+            <a class="btn btn-outline" href="#inventory">Browse Trucks <span>→</span></a>
+          </div>
+        </div>
+        <div class="finance-image"><img src="assets/cta-truck.jpg" alt="Semi truck driving at sunset"></div>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="section-inner">
+        <div class="section-top">
+          <div class="small-gold">Simple buying process</div>
+          <h2>From search to keys,<br>without the stress.</h2>
+        </div>
+        <div class="steps">
+          <article class="step"><div class="step-number">01</div><h3>Choose your truck type</h3><p>Start with the truck category that matches your job, route, and load requirements.</p></article>
+          <article class="step"><div class="step-number">02</div><h3>Compare inventory</h3><p>Review mileage, fuel type, condition, pricing, and financing options in one clean place.</p></article>
+          <article class="step"><div class="step-number">03</div><h3>Drive with confidence</h3><p>Get support on approval, paperwork, and delivery so you can move forward faster.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews" id="reviews">
+      <div class="section-inner">
+        <div class="section-top">
+          <div class="small-gold">Customer reviews</div>
+          <h2>Trusted by drivers<br>and business owners.</h2>
+        </div>
+        <div class="review-grid">
+          <article class="review"><span class="stars">★★★★★</span><p>“The process was easy and the truck was exactly what we needed for our crew.”</p><strong>Jason M. — Fleet Manager</strong></article>
+          <article class="review"><span class="stars">★★★★★</span><p>“Fair pricing, clean inventory, and quick financing. No runaround.”</p><strong>Sarah L. — Business Owner</strong></article>
+          <article class="review"><span class="stars">★★★★★</span><p>“Professional, honest, and reliable. I will be back for my next truck.”</p><strong>Michael R. — Owner Operator</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contact">
+      <div class="final-inner">
+        <div><h2>Ready to find your next truck?</h2><p>Tell us what you need and we will help you find the right truck for the right price.</p></div>
+        <a class="btn btn-primary" href="mailto:info@loyaltraders.com">Contact Us Today <span>→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="assets/lt-logo.png" alt="Loyal Traders logo"><div><div class="footer-title">LOYAL TRADERS</div><div class="footer-sub">Premium Trucks. Trusted Deals.</div></div></div>
+        <p class="footer-copy">Premium trucks, trusted deals, and dependable support for every business that needs to keep moving.</p>
+      </div>
+      <div class="foot"><h4>Inventory</h4><a href="#inventory">All Trucks</a><a href="#inventory">New Arrivals</a><a href="#inventory">Pre-Owned</a></div>
+      <div class="foot"><h4>Truck Types</h4><a href="#types">Light Duty</a><a href="#types">Medium Duty</a><a href="#types">Heavy Duty</a><a href="#types">Dump Trucks</a><a href="#types">Tractors</a></div>
+      <div class="foot"><h4>Company</h4><a href="#about">About Us</a><a href="#financing">Financing</a><a href="#reviews">Reviews</a></div>
+      <div class="foot"><h4>Contact</h4><p>(877) 555-0198</p><p>info@loyaltraders.com</p><p>Mon–Sat 8:00 AM–6:00 PM</p></div>
+    </div>
+    <div class="copyright">© 2024 Loyal Traders. All rights reserved.</div>
+  </footer>
+</body>
+</html>
