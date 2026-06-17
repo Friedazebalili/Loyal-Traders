@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Loyal Traders | Truck Dealer in Koga, Japan</title>
-  <meta name="description" content="Loyal Traders is a Japan-based truck dealer in Koga, Ibaraki offering quality commercial trucks, work trucks, and nationwide Japan delivery." />
+  <title>Loyal Traders | 茨城県古河市のトラック販売</title>
+  <meta name="description" content="Loyal Tradersは茨城県古河市を拠点とするトラック販売店です。商用トラック、作業用トラック、中古トラックを日本全国へご案内します。" />
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================
@@ -41,7 +41,7 @@
 
     body {
       margin: 0;
-      font-family: Inter, Arial, sans-serif;
+      font-family: "Inter", "Noto Sans JP", Arial, sans-serif;
       color: var(--text);
       background: var(--white);
       line-height: 1.5;
@@ -62,7 +62,7 @@
        - Logo stays left
        - Header is sticky
        - Header becomes smaller on scroll
-       - Japan-based business details
+       - Japanese content style
     ========================================================== */
 
     .site-header {
@@ -110,7 +110,7 @@
       color: #555;
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: 1.1px;
+      letter-spacing: .8px;
       text-transform: uppercase;
     }
 
@@ -228,10 +228,10 @@
     .nav {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 25px;
       font-size: 12px;
       font-weight: 900;
-      letter-spacing: .7px;
+      letter-spacing: .5px;
       text-transform: uppercase;
     }
 
@@ -240,6 +240,7 @@
       color: #4b4b4b;
       padding: 10px 0;
       transition: color .2s ease;
+      white-space: nowrap;
     }
 
     .nav a:hover,
@@ -276,7 +277,6 @@
       border-radius: 8px;
       font-size: 13px;
       font-weight: 900;
-      text-transform: uppercase;
       letter-spacing: .2px;
       transition:
         transform .2s ease,
@@ -296,6 +296,7 @@
       border: 1px solid #050505;
       box-shadow: 0 12px 26px rgba(0,0,0,.16);
       white-space: nowrap;
+      font-size: 12px;
     }
 
     .site-header.is-scrolled .header-btn {
@@ -352,8 +353,7 @@
       border: 1px solid rgba(0,0,0,.06);
       font-size: 13px;
       font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .6px;
+      letter-spacing: .4px;
     }
 
     .mobile-nav a:hover {
@@ -402,25 +402,25 @@
 
     .eyebrow {
       color: #4f545a;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       font-size: 13px;
       font-weight: 900;
       margin-bottom: 14px;
     }
 
     h1 {
-      font-size: clamp(43px, 5vw, 70px);
-      line-height: .98;
+      font-size: clamp(39px, 4.8vw, 66px);
+      line-height: 1.05;
       margin: 0 0 26px;
-      letter-spacing: -3px;
+      letter-spacing: -2.5px;
       max-width: 650px;
+      font-weight: 900;
     }
 
     .hero-text p {
       color: #555b62;
       font-size: 17px;
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 0 34px;
     }
 
@@ -467,7 +467,6 @@
       color: #8b929a;
       font-size: 14px;
       font-weight: 900;
-      text-transform: uppercase;
       letter-spacing: 1.5px;
       box-shadow: 0 28px 55px rgba(0,0,0,.08);
     }
@@ -493,8 +492,9 @@
     .split-head h2 {
       margin: 0;
       font-size: clamp(31px, 3vw, 44px);
-      line-height: 1.05;
+      line-height: 1.18;
       letter-spacing: -1.5px;
+      font-weight: 900;
     }
 
     /* ==========================================================
@@ -614,7 +614,6 @@
       color: #9aa1a9;
       font-size: 12px;
       font-weight: 900;
-      text-transform: uppercase;
       letter-spacing: 1px;
       background: rgba(255,255,255,.58);
       position: relative;
@@ -630,7 +629,6 @@
       border-radius: 5px;
       padding: 6px 9px;
       font-size: 11px;
-      text-transform: uppercase;
       font-weight: 900;
       z-index: 2;
     }
@@ -677,7 +675,6 @@
       padding: 0 15px;
       font-size: 12px;
       font-weight: 900;
-      text-transform: uppercase;
     }
 
     /* ==========================================================
@@ -858,7 +855,6 @@
     .footer-col h3 {
       margin: 0 0 17px;
       font-size: 13px;
-      text-transform: uppercase;
       letter-spacing: .8px;
     }
 
@@ -1124,12 +1120,12 @@
 <body>
   <!-- ==========================================================
        HEADER
-       White Japan-style premium header design.
+       White Japanese website header design.
   ========================================================== -->
   <header class="site-header" id="siteHeader">
     <div class="header-top">
       <div class="container header-top-inner">
-        <div>Koga, Ibaraki • Nationwide Japan Truck Sales</div>
+        <div>茨城県古河市 • 日本全国対応のトラック販売</div>
 
         <div class="header-top-links">
           <a href="tel:+818012345678">+81 80-1234-5678</a>
@@ -1140,9 +1136,9 @@
 
     <div class="container header-inner">
       <!-- Logo / Brand -->
-      <a class="brand" href="#" aria-label="Loyal Traders homepage">
+      <a class="brand" href="#" aria-label="Loyal Traders ホームページ">
         <span class="logo-shell">
-          <img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders Logo">
+          <img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders ロゴ">
         </span>
 
         <span class="brand-copy">
@@ -1152,31 +1148,31 @@
 
       <!-- Desktop Navigation -->
       <div class="nav-wrap">
-        <nav class="nav" aria-label="Primary navigation">
-          <a href="#" class="active">Home</a>
-          <a href="#inventory">Trucks</a>
-          <a href="#financing">Financing</a>
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact</a>
+        <nav class="nav" aria-label="メインナビゲーション">
+          <a href="#" class="active">ホーム</a>
+          <a href="#inventory">在庫車両</a>
+          <a href="#financing">購入サポート</a>
+          <a href="#about">会社情報</a>
+          <a href="#contact">お問い合わせ</a>
         </nav>
 
-        <a class="header-btn" href="#inventory">View Trucks <span>→</span></a>
+        <a class="header-btn" href="#inventory">在庫を見る <span>→</span></a>
 
         <!-- Mobile Button -->
-        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="メニューを開く" aria-expanded="false">
           ☰
         </button>
       </div>
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <nav class="mobile-nav" id="mobileNav" aria-label="モバイルナビゲーション">
       <div class="container mobile-nav-inner">
-        <a href="#">Home</a>
-        <a href="#inventory">Trucks</a>
-        <a href="#financing">Financing</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
+        <a href="#">ホーム</a>
+        <a href="#inventory">在庫車両</a>
+        <a href="#financing">購入サポート</a>
+        <a href="#about">会社情報</a>
+        <a href="#contact">お問い合わせ</a>
       </div>
     </nav>
   </header>
@@ -1188,18 +1184,18 @@
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
-          <div class="eyebrow">Japan-Based Truck Dealer</div>
-          <h1>Reliable Trucks for Businesses Across Japan</h1>
-          <p>Quality commercial trucks, work trucks, and heavy-duty vehicles based in Koga, Ibaraki with nationwide Japan support.</p>
+          <div class="eyebrow">日本国内向けトラック販売</div>
+          <h1>ビジネスに最適なトラックを、安心して選べる。</h1>
+          <p>茨城県古河市を拠点に、商用トラック・作業用トラック・中古トラックを日本全国のお客様へご案内します。</p>
 
           <div class="button-row">
-            <a class="btn btn-dark" href="#inventory">Browse Trucks <span>→</span></a>
-            <a class="btn btn-light" href="#contact">Contact Dealer <span>→</span></a>
+            <a class="btn btn-dark" href="#inventory">在庫を見る <span>→</span></a>
+            <a class="btn btn-light" href="#contact">相談する <span>→</span></a>
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="Empty hero image area">
-          <div class="image-placeholder">Hero Truck Image Area</div>
+        <div class="hero-visual" aria-label="トラック画像エリア">
+          <div class="image-placeholder">トラック画像エリア</div>
         </div>
       </div>
     </section>
@@ -1210,80 +1206,80 @@
     <section class="section" id="truck-types">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Choose Your Truck Type</div>
-          <h2>Select the truck type<br>that fits your Japan business</h2>
+          <div class="eyebrow">車両タイプから探す</div>
+          <h2>用途に合わせた<br>トラックをお選びください</h2>
         </div>
 
         <div class="categories">
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Kei Trucks</h3>
+            <h3>軽トラック</h3>
             <span class="arrow">→</span>
           </a>
 
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Box Trucks</h3>
+            <h3>箱車</h3>
             <span class="arrow">→</span>
           </a>
 
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Dump Trucks</h3>
+            <h3>ダンプ</h3>
             <span class="arrow">→</span>
           </a>
 
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Flatbed Trucks</h3>
+            <h3>平ボディ</h3>
             <span class="arrow">→</span>
           </a>
 
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Cargo Vans</h3>
+            <h3>バン</h3>
             <span class="arrow">→</span>
           </a>
 
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Heavy-Duty Trucks</h3>
+            <h3>大型トラック</h3>
             <span class="arrow">→</span>
           </a>
 
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Tow Trucks</h3>
+            <h3>レッカー車</h3>
             <span class="arrow">→</span>
           </a>
 
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Refrigerated Trucks</h3>
+            <h3>冷蔵・冷凍車</h3>
             <span class="arrow">→</span>
           </a>
 
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Tanker Trucks</h3>
+            <h3>タンクローリー</h3>
             <span class="arrow">→</span>
           </a>
 
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Utility Trucks</h3>
+            <h3>作業車</h3>
             <span class="arrow">→</span>
           </a>
 
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Bucket Trucks</h3>
+            <h3>高所作業車</h3>
             <span class="arrow">→</span>
           </a>
 
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Crane Trucks</h3>
+            <h3>クレーン車</h3>
             <span class="arrow">→</span>
           </a>
         </div>
@@ -1297,95 +1293,95 @@
       <div class="container">
         <div class="split-head">
           <div>
-            <div class="eyebrow">Featured Inventory</div>
-            <h2>Explore Trucks in Japan</h2>
+            <div class="eyebrow">おすすめ在庫</div>
+            <h2>販売中のトラック</h2>
           </div>
 
-          <a class="btn btn-light" href="#">View All Trucks <span>→</span></a>
+          <a class="btn btn-light" href="#">すべての在庫を見る <span>→</span></a>
         </div>
 
         <div class="inventory-grid">
           <article class="truck-card">
             <div class="truck-media">
-              <span class="tag">New Arrival</span>
-              <div class="card-image-placeholder">Truck Image</div>
+              <span class="tag">新着</span>
+              <div class="card-image-placeholder">車両画像</div>
             </div>
 
             <div class="truck-content">
-              <h3>2022 Isuzu Giga</h3>
-              <div class="truck-type">Heavy-Duty Truck</div>
+              <h3>2022年式 いすゞ ギガ</h3>
+              <div class="truck-type">大型トラック</div>
 
               <div class="specs">
-                <span>▣ Diesel</span>
-                <span>⚙ Automatic</span>
-                <span>◉ Japan Ready</span>
+                <span>▣ ディーゼル</span>
+                <span>⚙ オートマ</span>
+                <span>◉ 国内対応</span>
               </div>
 
               <div class="price">¥13,800,000</div>
-              <a class="details-btn" href="#">View Details <span>→</span></a>
+              <a class="details-btn" href="#">詳細を見る <span>→</span></a>
             </div>
           </article>
 
           <article class="truck-card">
             <div class="truck-media">
-              <span class="tag">Low KM</span>
-              <div class="card-image-placeholder">Truck Image</div>
+              <span class="tag">低走行</span>
+              <div class="card-image-placeholder">車両画像</div>
             </div>
 
             <div class="truck-content">
-              <h3>2021 Hino Dutro</h3>
-              <div class="truck-type">Box Truck</div>
+              <h3>2021年式 日野 デュトロ</h3>
+              <div class="truck-type">箱車</div>
 
               <div class="specs">
-                <span>▣ Diesel</span>
-                <span>⚙ Automatic</span>
-                <span>◉ Delivery Use</span>
+                <span>▣ ディーゼル</span>
+                <span>⚙ オートマ</span>
+                <span>◉ 配送向け</span>
               </div>
 
               <div class="price">¥6,450,000</div>
-              <a class="details-btn" href="#">View Details <span>→</span></a>
+              <a class="details-btn" href="#">詳細を見る <span>→</span></a>
             </div>
           </article>
 
           <article class="truck-card">
             <div class="truck-media">
-              <span class="tag">Excellent</span>
-              <div class="card-image-placeholder">Truck Image</div>
+              <span class="tag">良好</span>
+              <div class="card-image-placeholder">車両画像</div>
             </div>
 
             <div class="truck-content">
-              <h3>2020 Mitsubishi Fuso</h3>
-              <div class="truck-type">Dump Truck</div>
+              <h3>2020年式 三菱ふそう</h3>
+              <div class="truck-type">ダンプ</div>
 
               <div class="specs">
-                <span>▣ Diesel</span>
-                <span>⚙ Manual</span>
-                <span>◉ Work Site</span>
+                <span>▣ ディーゼル</span>
+                <span>⚙ マニュアル</span>
+                <span>◉ 現場向け</span>
               </div>
 
               <div class="price">¥8,900,000</div>
-              <a class="details-btn" href="#">View Details <span>→</span></a>
+              <a class="details-btn" href="#">詳細を見る <span>→</span></a>
             </div>
           </article>
 
           <article class="truck-card">
             <div class="truck-media">
-              <span class="tag">Great Value</span>
-              <div class="card-image-placeholder">Truck Image</div>
+              <span class="tag">おすすめ</span>
+              <div class="card-image-placeholder">車両画像</div>
             </div>
 
             <div class="truck-content">
-              <h3>2021 Suzuki Carry</h3>
-              <div class="truck-type">Kei Truck</div>
+              <h3>2021年式 スズキ キャリイ</h3>
+              <div class="truck-type">軽トラック</div>
 
               <div class="specs">
-                <span>▣ Petrol</span>
-                <span>⚙ Automatic</span>
-                <span>◉ City Use</span>
+                <span>▣ ガソリン</span>
+                <span>⚙ オートマ</span>
+                <span>◉ 街乗り向け</span>
               </div>
 
               <div class="price">¥1,350,000</div>
-              <a class="details-btn" href="#">View Details <span>→</span></a>
+              <a class="details-btn" href="#">詳細を見る <span>→</span></a>
             </div>
           </article>
         </div>
@@ -1398,33 +1394,33 @@
     <section class="section-tight why" id="about">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">Why Choose Loyal Traders</div>
-          <h2>Japan Quality. Honest Service.</h2>
+          <div class="eyebrow">Loyal Tradersが選ばれる理由</div>
+          <h2>安心品質と誠実なサポート</h2>
         </div>
 
         <div class="why-grid">
           <div class="why-card">
             <div class="why-icon" aria-hidden="true"></div>
-            <h3>Inspected Trucks</h3>
-            <p>Every truck is checked for condition, reliability, and road-ready confidence before listing.</p>
+            <h3>車両状態を確認</h3>
+            <p>掲載前に車両の状態を確認し、安心してご検討いただけるトラックをご案内します。</p>
           </div>
 
           <div class="why-card">
             <div class="why-icon" aria-hidden="true"></div>
-            <h3>Local Dealer Support</h3>
-            <p>Based in Koga, Ibaraki, our team helps buyers find the right truck for their business needs.</p>
+            <h3>地域密着サポート</h3>
+            <p>茨城県古河市を拠点に、お客様の用途に合う車両探しをサポートします。</p>
           </div>
 
           <div class="why-card" id="financing">
             <div class="why-icon" aria-hidden="true"></div>
-            <h3>Flexible Options</h3>
-            <p>We can guide customers through available purchasing and financing options when possible.</p>
+            <h3>購入相談も対応</h3>
+            <p>ご予算や用途に合わせて、購入方法や必要な確認事項をご案内します。</p>
           </div>
 
           <div class="why-card">
             <div class="why-icon" aria-hidden="true"></div>
-            <h3>Nationwide Japan Delivery</h3>
-            <p>We support customers across Japan and help arrange suitable delivery options.</p>
+            <h3>日本全国対応</h3>
+            <p>関東エリアを中心に、日本全国のお客様へ車両をご案内できます。</p>
           </div>
         </div>
       </div>
@@ -1437,12 +1433,12 @@
       <div class="container">
         <div class="cta-box">
           <div class="cta-content">
-            <div class="eyebrow">Need a Truck in Japan?</div>
-            <h2>Looking for a specific truck?</h2>
-            <p>Tell us what type of truck you need and our Koga-based team will help you find the right option.</p>
+            <div class="eyebrow">お探しのトラックはありますか？</div>
+            <h2>ご希望の車両をお聞かせください。</h2>
+            <p>用途・ご予算・車両タイプをお知らせいただければ、古河市を拠点とする当社スタッフが最適な車両探しをサポートします。</p>
           </div>
 
-          <a class="btn btn-light" href="mailto:info@loyaltraders.jp">Request Availability <span>→</span></a>
+          <a class="btn btn-light" href="mailto:info@loyaltraders.jp">問い合わせる <span>→</span></a>
         </div>
       </div>
     </section>
@@ -1456,7 +1452,7 @@
       <div class="footer-about">
         <div class="footer-logo-row">
           <span class="logo-shell">
-            <img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders Logo">
+            <img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders ロゴ">
           </span>
 
           <span class="footer-brand-copy">
@@ -1464,7 +1460,7 @@
           </span>
         </div>
 
-        <p>Japan-based truck dealer located in Koga, Ibaraki, offering quality commercial trucks and nationwide Japan support.</p>
+        <p>茨城県古河市を拠点に、商用トラック・作業用トラック・中古トラックを日本全国のお客様へご案内しています。</p>
 
         <div class="socials">
           <span>f</span>
@@ -1475,34 +1471,34 @@
       </div>
 
       <div class="footer-col">
-        <h3>Quick Links</h3>
+        <h3>クイックリンク</h3>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#inventory">Trucks</a></li>
-          <li><a href="#financing">Financing</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">ホーム</a></li>
+          <li><a href="#inventory">在庫車両</a></li>
+          <li><a href="#financing">購入サポート</a></li>
+          <li><a href="#about">会社情報</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h3>Truck Types</h3>
+        <h3>車両タイプ</h3>
         <ul>
-          <li>Kei Trucks</li>
-          <li>Box Trucks</li>
-          <li>Dump Trucks</li>
-          <li>Flatbed Trucks</li>
-          <li>Cargo Vans</li>
-          <li>Heavy-Duty Trucks</li>
+          <li>軽トラック</li>
+          <li>箱車</li>
+          <li>ダンプ</li>
+          <li>平ボディ</li>
+          <li>バン</li>
+          <li>大型トラック</li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h3>Contact Us</h3>
+        <h3>お問い合わせ</h3>
         <ul>
           <li>☎ +81 80-1234-5678</li>
           <li>✉ info@loyaltraders.jp</li>
-          <li>⌖ Koga, Ibaraki,<br>Japan</li>
+          <li>⌖ 茨城県古河市<br>日本</li>
         </ul>
       </div>
     </div>
@@ -1511,8 +1507,8 @@
       <div>© 2026 Loyal Traders. All rights reserved.</div>
 
       <div class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">利用規約</a>
       </div>
     </div>
   </footer>
