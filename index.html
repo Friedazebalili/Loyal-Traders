@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Loyal Traders | Truck Dealer Layout</title>
-  <meta name="description" content="Loyal Traders WooCommerce truck dealer homepage layout with logo attached, with empty image and icon placeholders." />
+  <meta name="description" content="Loyal Traders WooCommerce truck dealer homepage layout with premium sticky header design." />
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +26,8 @@
       --white: #ffffff;
       --off-white: #f7f7f7;
       --silver: #c9c9c9;
+      --silver-soft: #efefef;
+      --gold-soft: #c9aa67;
       --shadow: 0 22px 60px rgba(0,0,0,.10);
       --radius: 18px;
       --container: 1180px;
@@ -58,9 +60,10 @@
     }
 
     /* ==========================================================
-       HEADER
-       Logo is LEFT aligned.
-       Header is sticky and gets smaller when scrolling.
+       NEW PREMIUM HEADER DESIGN
+       Logo is left-aligned.
+       Header is sticky.
+       Scroll effect shrinks and adds glass premium finish.
     ========================================================== */
 
     .site-header {
@@ -68,9 +71,11 @@
       top: 0;
       z-index: 999;
       color: #fff;
-      background: linear-gradient(180deg, #111111 0%, #050505 100%);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 16px 44px rgba(0,0,0,.22);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.10), transparent 32%),
+        linear-gradient(180deg, #111111 0%, #050505 100%);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 50px rgba(0,0,0,.26);
       transition:
         background .28s ease,
         box-shadow .28s ease,
@@ -78,21 +83,20 @@
         backdrop-filter .28s ease;
     }
 
-    /* This class is added by JavaScript when scrolling */
     .site-header.is-scrolled {
-      background: rgba(5, 5, 5, .88);
-      backdrop-filter: blur(14px);
+      background: rgba(5, 5, 5, .90);
+      backdrop-filter: blur(16px);
       border-bottom-color: rgba(255,255,255,.14);
-      box-shadow: 0 14px 38px rgba(0,0,0,.32);
+      box-shadow: 0 14px 40px rgba(0,0,0,.34);
     }
 
-    /* Small top info bar */
+    /* Top strip above main header */
     .header-top {
       border-bottom: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.02);
-      transition: max-height .28s ease, opacity .28s ease, transform .28s ease;
+      background: rgba(255,255,255,.025);
       overflow: hidden;
-      max-height: 48px;
+      max-height: 42px;
+      transition: max-height .28s ease, opacity .28s ease, transform .28s ease;
     }
 
     .site-header.is-scrolled .header-top {
@@ -103,15 +107,15 @@
     }
 
     .header-top-inner {
-      min-height: 42px;
+      min-height: 38px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      color: rgba(255,255,255,.72);
+      color: rgba(255,255,255,.68);
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.4px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
       text-transform: uppercase;
     }
 
@@ -124,65 +128,106 @@
 
     .header-top a {
       color: rgba(255,255,255,.82);
+      transition: color .2s ease;
+    }
+
+    .header-top a:hover {
+      color: #fff;
     }
 
     /* Main header row */
     .header-inner {
-      min-height: 96px;
+      min-height: 104px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 28px;
-      padding: 14px 0;
+      gap: 26px;
+      padding: 16px 0;
       transition: min-height .28s ease, padding .28s ease;
     }
 
     .site-header.is-scrolled .header-inner {
-      min-height: 74px;
+      min-height: 76px;
       padding: 8px 0;
     }
 
-    /* Brand/logo area */
+    /* Premium brand block */
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: flex-start;
-      gap: 14px;
-      min-width: 255px;
+      gap: 16px;
       flex: 0 0 auto;
+      min-width: 285px;
     }
 
-    /* Circle holder for logo */
-    .logo-shell {
-      width: 78px;
-      height: 78px;
-      border-radius: 50%;
-      padding: 4px;
+    /* Outer badge makes logo blend better with black header */
+    .logo-badge {
+      position: relative;
+      width: 88px;
+      height: 88px;
+      border-radius: 22px;
+      padding: 7px;
       background:
-        radial-gradient(circle at 35% 25%, rgba(255,255,255,.16), rgba(255,255,255,.04) 46%, rgba(0,0,0,.3) 100%);
-      border: 1px solid rgba(255,255,255,.24);
+        linear-gradient(145deg, rgba(255,255,255,.24), rgba(255,255,255,.05) 42%, rgba(0,0,0,.20)),
+        linear-gradient(135deg, #2a2a2a, #090909);
+      border: 1px solid rgba(255,255,255,.18);
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.12),
-        inset 0 0 0 1px rgba(255,255,255,.05),
-        0 14px 32px rgba(0,0,0,.35);
+        inset 0 1px 0 rgba(255,255,255,.14),
+        0 18px 34px rgba(0,0,0,.38);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      flex: 0 0 auto;
-      transition: width .28s ease, height .28s ease, padding .28s ease, box-shadow .28s ease;
+      transition: width .28s ease, height .28s ease, border-radius .28s ease, padding .28s ease;
     }
 
-    .site-header.is-scrolled .logo-shell {
-      width: 58px;
-      height: 58px;
-      padding: 3px;
+    .logo-badge::before {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      pointer-events: none;
+    }
+
+    .logo-badge::after {
+      content: "";
+      position: absolute;
+      width: 80%;
+      height: 1px;
+      top: 10px;
+      left: 10%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.34), transparent);
+      pointer-events: none;
+    }
+
+    .site-header.is-scrolled .logo-badge {
+      width: 62px;
+      height: 62px;
+      border-radius: 17px;
+      padding: 5px;
+    }
+
+    /* Circle logo holder inside the badge */
+    .logo-shell {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,.16), rgba(255,255,255,.04) 44%, rgba(0,0,0,.42) 100%);
+      border: 1px solid rgba(255,255,255,.20);
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.10),
-        0 10px 24px rgba(0,0,0,.32);
+        inset 0 1px 0 rgba(255,255,255,.12),
+        inset 0 0 0 1px rgba(255,255,255,.05),
+        0 10px 20px rgba(0,0,0,.26);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    /* Actual logo image */
     .logo-shell img {
       width: 100%;
       height: 100%;
@@ -190,71 +235,91 @@
       border-radius: 50%;
       object-fit: cover;
       object-position: center;
-      transform: scale(1.12);
+      transform: scale(1.13);
       transform-origin: center;
     }
 
     .brand-copy {
-      display: flex;
-      align-items: center;
+      display: grid;
+      gap: 7px;
     }
 
     .brand-name {
       color: #fff;
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: 5.4px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 5.2px;
       line-height: 1;
       white-space: nowrap;
       transition: font-size .28s ease, letter-spacing .28s ease;
     }
 
+    .brand-line {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: rgba(255,255,255,.58);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.9px;
+      text-transform: uppercase;
+      transition: opacity .28s ease;
+    }
+
+    .brand-line::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold-soft), rgba(255,255,255,.18));
+    }
+
     .site-header.is-scrolled .brand-name {
-      font-size: 15px;
+      font-size: 16px;
       letter-spacing: 4px;
     }
 
-    /* Desktop navigation */
+    .site-header.is-scrolled .brand-line {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    /* Desktop right side */
     .nav-wrap {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 30px;
+      gap: 28px;
       flex: 1;
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 6px;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: .8px;
       text-transform: uppercase;
+      padding: 7px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
     }
 
     .nav a {
       position: relative;
-      color: rgba(255,255,255,.84);
-      padding: 12px 0;
-      transition: color .2s ease;
+      color: rgba(255,255,255,.76);
+      padding: 11px 15px;
+      border-radius: 999px;
+      transition: color .2s ease, background .2s ease;
     }
 
     .nav a:hover,
     .nav a.active {
       color: #fff;
-    }
-
-    .nav a.active::after,
-    .nav a:hover::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 3px;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(255,255,255,.35));
-      border-radius: 20px;
+      background: rgba(255,255,255,.10);
     }
 
     .header-btn,
@@ -278,13 +343,16 @@
     }
 
     .header-btn {
-      min-height: 48px;
-      padding: 0 22px;
+      min-height: 50px;
+      padding: 0 23px;
       border-radius: 999px;
-      background: #ffffff;
+      background:
+        linear-gradient(180deg, #ffffff, #dcdcdc);
       color: #050505;
-      border: 1px solid #ffffff;
-      box-shadow: 0 14px 28px rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.78);
+      box-shadow:
+        0 14px 30px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.8);
       white-space: nowrap;
     }
 
@@ -297,7 +365,7 @@
     .header-btn:hover {
       background: transparent;
       color: #ffffff;
-      border-color: rgba(255,255,255,.55);
+      border-color: rgba(255,255,255,.45);
       transform: translateY(-2px);
     }
 
@@ -310,21 +378,24 @@
       display: none;
       width: 46px;
       height: 46px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.05);
+      border-radius: 15px;
+      background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.18);
       color: #fff;
       font-size: 24px;
       line-height: 1;
       cursor: pointer;
       place-items: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
     }
 
     /* Mobile dropdown menu */
     .mobile-nav {
       display: none;
       border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(5,5,5,.98);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.08), transparent 34%),
+        rgba(5,5,5,.98);
     }
 
     .mobile-nav-inner {
@@ -334,10 +405,11 @@
     }
 
     .mobile-nav a {
-      padding: 13px 14px;
-      border-radius: 10px;
+      padding: 14px 15px;
+      border-radius: 12px;
       color: rgba(255,255,255,.84);
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.07);
       font-size: 13px;
       font-weight: 800;
       text-transform: uppercase;
@@ -345,7 +417,7 @@
     }
 
     .mobile-nav a:hover {
-      background: rgba(255,255,255,.10);
+      background: rgba(255,255,255,.11);
       color: #fff;
     }
 
@@ -792,10 +864,11 @@
       margin-bottom: 18px;
     }
 
-    .footer-logo-shell {
-      width: 66px;
-      height: 66px;
-      padding: 4px;
+    .footer-logo-row .logo-badge {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      padding: 6px;
     }
 
     .footer-brand-copy {
@@ -870,13 +943,32 @@
        RESPONSIVE
     ========================================================== */
 
+    @media (max-width: 1100px) {
+      .nav {
+        gap: 3px;
+      }
+
+      .nav a {
+        padding: 10px 11px;
+      }
+
+      .brand {
+        min-width: 250px;
+      }
+
+      .brand-name {
+        font-size: 17px;
+        letter-spacing: 4px;
+      }
+    }
+
     @media (max-width: 1050px) {
       .header-top {
         display: none;
       }
 
       .header-inner {
-        min-height: 86px;
+        min-height: 88px;
       }
 
       .site-header.is-scrolled .header-inner {
@@ -946,15 +1038,17 @@
         min-height: 66px;
       }
 
-      .logo-shell {
-        width: 58px;
-        height: 58px;
-        padding: 3px;
+      .logo-badge {
+        width: 62px;
+        height: 62px;
+        border-radius: 17px;
+        padding: 5px;
       }
 
-      .site-header.is-scrolled .logo-shell {
-        width: 50px;
-        height: 50px;
+      .site-header.is-scrolled .logo-badge {
+        width: 52px;
+        height: 52px;
+        border-radius: 15px;
       }
 
       .brand {
@@ -964,6 +1058,10 @@
       .brand-name {
         font-size: 13px;
         letter-spacing: 3px;
+      }
+
+      .brand-line {
+        display: none;
       }
 
       .site-header.is-scrolled .brand-name {
@@ -1063,9 +1161,9 @@
         gap: 30px;
       }
 
-      .footer-logo-shell {
-        width: 58px;
-        height: 58px;
+      .footer-logo-row .logo-badge {
+        width: 60px;
+        height: 60px;
       }
 
       .footer-brand-copy .brand-name {
@@ -1088,14 +1186,14 @@
         letter-spacing: 2.2px;
       }
 
-      .logo-shell {
-        width: 52px;
-        height: 52px;
+      .logo-badge {
+        width: 56px;
+        height: 56px;
       }
 
-      .site-header.is-scrolled .logo-shell {
-        width: 46px;
-        height: 46px;
+      .site-header.is-scrolled .logo-badge {
+        width: 48px;
+        height: 48px;
       }
 
       .mobile-menu-btn {
@@ -1109,6 +1207,7 @@
 <body>
   <!-- ==========================================================
        HEADER
+       New premium header approach.
        Edit logo image inside .logo-shell img src.
   ========================================================== -->
   <header class="site-header" id="siteHeader">
@@ -1126,12 +1225,15 @@
     <div class="container header-inner">
       <!-- Logo / Brand -->
       <a class="brand" href="#" aria-label="Loyal Traders homepage">
-        <span class="logo-shell">
-          <img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders Logo">
+        <span class="logo-badge">
+          <span class="logo-shell">
+            <img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders Logo">
+          </span>
         </span>
 
         <span class="brand-copy">
           <span class="brand-name">LOYAL TRADERS</span>
+          <span class="brand-line">Commercial Truck Sales</span>
         </span>
       </a>
 
@@ -1440,8 +1542,10 @@
     <div class="container footer-main">
       <div class="footer-about">
         <div class="footer-logo-row">
-          <span class="logo-shell footer-logo-shell">
-            <img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders Logo">
+          <span class="logo-badge">
+            <span class="logo-shell">
+              <img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders Logo">
+            </span>
           </span>
 
           <span class="footer-brand-copy">
