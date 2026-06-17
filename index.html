@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Loyal Traders | Truck Dealer Layout</title>
   <meta name="description" content="Loyal Traders WooCommerce truck dealer homepage layout with logo attached, with empty image and icon placeholders." />
+
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
+    /* ==========================================================
+       GLOBAL VARIABLES
+       Edit colors, max width, shadows, and radius here.
+    ========================================================== */
     :root {
       --black: #050505;
       --black-soft: #111111;
@@ -23,9 +31,13 @@
       --container: 1180px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -35,79 +47,217 @@
       line-height: 1.5;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .container {
       width: min(var(--container), calc(100% - 40px));
       margin: 0 auto;
     }
 
+    /* ==========================================================
+       HEADER
+       Logo is now LEFT aligned.
+       Header is sticky and gets smaller when scrolling.
+    ========================================================== */
+
     .site-header {
-      background: radial-gradient(circle at top left, #1b1b1b, #050505 45%, #000);
-      color: #fff;
       position: sticky;
       top: 0;
-      z-index: 50;
-      box-shadow: 0 12px 40px rgba(0,0,0,.18);
+      z-index: 999;
+      color: #fff;
+      background: linear-gradient(180deg, #111111 0%, #050505 100%);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 16px 44px rgba(0,0,0,.22);
+      transition:
+        background .28s ease,
+        box-shadow .28s ease,
+        border-color .28s ease,
+        backdrop-filter .28s ease;
     }
 
+    /* This class is added by JavaScript when scrolling */
+    .site-header.is-scrolled {
+      background: rgba(5, 5, 5, .88);
+      backdrop-filter: blur(14px);
+      border-bottom-color: rgba(255,255,255,.14);
+      box-shadow: 0 14px 38px rgba(0,0,0,.32);
+    }
+
+    /* Small top info bar */
+    .header-top {
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      transition: max-height .28s ease, opacity .28s ease, transform .28s ease;
+      overflow: hidden;
+      max-height: 48px;
+    }
+
+    .site-header.is-scrolled .header-top {
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-8px);
+      border-bottom-color: transparent;
+    }
+
+    .header-top-inner {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: rgba(255,255,255,.72);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .header-top-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .header-top a {
+      color: rgba(255,255,255,.82);
+    }
+
+    /* Main header row */
     .header-inner {
-      min-height: 92px;
+      min-height: 96px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 28px;
+      padding: 14px 0;
+      transition: min-height .28s ease, padding .28s ease;
     }
 
+    .site-header.is-scrolled .header-inner {
+      min-height: 74px;
+      padding: 8px 0;
+    }
+
+    /* Brand/logo area */
     .brand {
       display: flex;
       align-items: center;
+      justify-content: flex-start;
       gap: 14px;
-      min-width: 240px;
+      min-width: 255px;
+      flex: 0 0 auto;
     }
 
-    .logo-placeholder {
-      width: 68px;
-      height: 68px;
+    /* Circle holder for logo */
+    .logo-shell {
+      width: 78px;
+      height: 78px;
       border-radius: 50%;
+      padding: 4px;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,.16), rgba(255,255,255,.04) 46%, rgba(0,0,0,.3) 100%);
+      border: 1px solid rgba(255,255,255,.24);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.12),
+        inset 0 0 0 1px rgba(255,255,255,.05),
+        0 14px 32px rgba(0,0,0,.35);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      background: #111;
-      border: 1px solid rgba(255,255,255,.20);
-      box-shadow: 0 14px 32px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,255,255,.06);
       flex: 0 0 auto;
+      transition: width .28s ease, height .28s ease, padding .28s ease, box-shadow .28s ease;
     }
 
-    .logo-placeholder img {
+    .site-header.is-scrolled .logo-shell {
+      width: 58px;
+      height: 58px;
+      padding: 3px;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.10),
+        0 10px 24px rgba(0,0,0,.32);
+    }
+
+    /* Actual logo image */
+    .logo-shell img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       display: block;
-      transform: scale(1.48);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.12);
       transform-origin: center;
     }
 
-    .brand-text {
+    .brand-copy {
       display: grid;
-      gap: 1px;
-      letter-spacing: 7px;
-      font-size: 20px;
-      line-height: 1.05;
+      gap: 4px;
+    }
+
+    .brand-kicker {
+      color: rgba(255,255,255,.56);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      transition: font-size .28s ease, opacity .28s ease;
+    }
+
+    .brand-name {
+      color: #fff;
+      font-size: 18px;
       font-weight: 800;
+      letter-spacing: 5.4px;
+      line-height: 1;
+      white-space: nowrap;
+      transition: font-size .28s ease, letter-spacing .28s ease;
+    }
+
+    .site-header.is-scrolled .brand-kicker {
+      font-size: 8px;
+      opacity: .75;
+    }
+
+    .site-header.is-scrolled .brand-name {
+      font-size: 15px;
+      letter-spacing: 4px;
+    }
+
+    /* Desktop navigation */
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 30px;
+      flex: 1;
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 34px;
-      font-size: 13px;
+      gap: 30px;
+      font-size: 12px;
       font-weight: 800;
+      letter-spacing: .8px;
       text-transform: uppercase;
     }
 
-    .nav a { position: relative; opacity: .92; }
+    .nav a {
+      position: relative;
+      color: rgba(255,255,255,.84);
+      padding: 12px 0;
+      transition: color .2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: #fff;
+    }
 
     .nav a.active::after,
     .nav a:hover::after {
@@ -115,9 +265,9 @@
       position: absolute;
       left: 0;
       right: 0;
-      bottom: -14px;
+      bottom: 3px;
       height: 2px;
-      background: #fff;
+      background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(255,255,255,.35));
       border-radius: 20px;
     }
 
@@ -132,29 +282,94 @@
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: .2px;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease;
       cursor: pointer;
     }
 
     .header-btn {
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.55);
-      padding: 17px 25px;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #050505;
+      border: 1px solid #ffffff;
+      box-shadow: 0 14px 28px rgba(0,0,0,.18);
       white-space: nowrap;
     }
 
-    .header-btn:hover,
-    .btn:hover { transform: translateY(-2px); }
-
-    .mobile-menu-icon {
-      display: none;
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(255,255,255,.35);
-      border-radius: 10px;
-      place-items: center;
-      font-size: 22px;
+    .site-header.is-scrolled .header-btn {
+      min-height: 42px;
+      padding: 0 18px;
+      font-size: 12px;
     }
+
+    .header-btn:hover {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255,255,255,.55);
+      transform: translateY(-2px);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Mobile hamburger button */
+    .mobile-menu-btn {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.18);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      place-items: center;
+    }
+
+    /* Mobile dropdown menu */
+    .mobile-nav {
+      display: none;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(5,5,5,.98);
+    }
+
+    .mobile-nav-inner {
+      padding: 14px 0 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .mobile-nav a {
+      padding: 13px 14px;
+      border-radius: 10px;
+      color: rgba(255,255,255,.84);
+      background: rgba(255,255,255,.04);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+
+    .mobile-nav a:hover {
+      background: rgba(255,255,255,.10);
+      color: #fff;
+    }
+
+    .mobile-nav.is-open {
+      display: block;
+    }
+
+    /* ==========================================================
+       HERO
+    ========================================================== */
 
     .hero {
       position: relative;
@@ -169,7 +384,9 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(0,0,0,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.025) 1px, transparent 1px);
+      background-image:
+        linear-gradient(rgba(0,0,0,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,.025) 1px, transparent 1px);
       background-size: 80px 80px;
       mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), transparent 88%);
       pointer-events: none;
@@ -257,8 +474,17 @@
       box-shadow: 0 28px 55px rgba(0,0,0,.08);
     }
 
-    .section { padding: 78px 0; }
-    .section-tight { padding: 62px 0; }
+    /* ==========================================================
+       GENERAL SECTIONS
+    ========================================================== */
+
+    .section {
+      padding: 78px 0;
+    }
+
+    .section-tight {
+      padding: 62px 0;
+    }
 
     .section-head {
       text-align: center;
@@ -272,6 +498,10 @@
       line-height: 1.05;
       letter-spacing: -1.5px;
     }
+
+    /* ==========================================================
+       TRUCK TYPE CARDS
+    ========================================================== */
 
     .categories {
       display: grid;
@@ -310,25 +540,24 @@
       background: linear-gradient(135deg, #ffffff, #f5f6f7);
     }
 
-    .truck-icon svg {
-      width: 100%;
-      height: 100%;
-      stroke: #050505;
-      stroke-width: 4.2;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
     .category-card h3 {
       margin: 2px 0 0;
       font-size: 15px;
       text-align: center;
     }
 
-    .arrow { font-size: 19px; line-height: 1; }
+    .arrow {
+      font-size: 19px;
+      line-height: 1;
+    }
 
-    .inventory { background: linear-gradient(#fff, #fafafa); }
+    /* ==========================================================
+       INVENTORY CARDS
+    ========================================================== */
+
+    .inventory {
+      background: linear-gradient(#fff, #fafafa);
+    }
 
     .split-head {
       display: flex;
@@ -338,7 +567,9 @@
       margin-bottom: 30px;
     }
 
-    .split-head .eyebrow { margin-bottom: 8px; }
+    .split-head .eyebrow {
+      margin-bottom: 8px;
+    }
 
     .inventory-grid {
       display: grid;
@@ -406,7 +637,9 @@
       z-index: 2;
     }
 
-    .truck-content { padding: 20px 18px 18px; }
+    .truck-content {
+      padding: 20px 18px 18px;
+    }
 
     .truck-content h3 {
       margin: 0;
@@ -449,14 +682,19 @@
       text-transform: uppercase;
     }
 
-    .why { background: #fff; }
+    /* ==========================================================
+       WHY CHOOSE US
+    ========================================================== */
+
+    .why {
+      background: #fff;
+    }
 
     .why-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
       margin-top: 40px;
-      border-top: 1px solid transparent;
     }
 
     .why-card {
@@ -465,22 +703,17 @@
       border-right: 1px solid #d9dde2;
     }
 
-    .why-card:last-child { border-right: 0; }
+    .why-card:last-child {
+      border-right: 0;
+    }
 
     .why-icon {
       width: 58px;
       height: 58px;
       margin: 0 auto 17px;
-    }
-
-    .why-icon svg {
-      width: 100%;
-      height: 100%;
-      stroke: #050505;
-      stroke-width: 2.2;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      border: 2px dashed #d7dbe0;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ffffff, #f5f6f7);
     }
 
     .why-card h3 {
@@ -494,7 +727,13 @@
       font-size: 14px;
     }
 
-    .cta { padding: 20px 0 76px; }
+    /* ==========================================================
+       CTA SECTION
+    ========================================================== */
+
+    .cta {
+      padding: 20px 0 76px;
+    }
 
     .cta-box {
       position: relative;
@@ -522,7 +761,10 @@
     }
 
     .cta-content,
-    .cta-box .btn { position: relative; z-index: 1; }
+    .cta-box .btn {
+      position: relative;
+      z-index: 1;
+    }
 
     .cta-content .eyebrow {
       color: #c9c9c9;
@@ -541,6 +783,10 @@
       color: #d4d4d4;
     }
 
+    /* ==========================================================
+       FOOTER
+    ========================================================== */
+
     .site-footer {
       background: radial-gradient(circle at top left, #171717, #030303 55%, #000);
       color: #fff;
@@ -556,18 +802,29 @@
     .footer-logo-row {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 15px;
+      gap: 14px;
+      margin-bottom: 18px;
     }
 
-    .footer-logo-row .logo-placeholder {
-      width: 58px;
-      height: 58px;
+    .footer-logo-shell {
+      width: 66px;
+      height: 66px;
+      padding: 4px;
     }
 
-    .footer-logo-row .brand-text {
-      font-size: 18px;
-      letter-spacing: 6px;
+    .footer-brand-copy {
+      display: grid;
+      gap: 3px;
+    }
+
+    .footer-brand-copy .brand-name {
+      font-size: 16px;
+      letter-spacing: 4.4px;
+    }
+
+    .footer-brand-copy .brand-kicker {
+      font-size: 9px;
+      letter-spacing: 2px;
     }
 
     .footer-about p,
@@ -577,7 +834,10 @@
       font-size: 14px;
     }
 
-    .footer-about p { max-width: 280px; margin: 0 0 18px; }
+    .footer-about p {
+      max-width: 280px;
+      margin: 0 0 18px;
+    }
 
     .socials {
       display: flex;
@@ -620,349 +880,341 @@
       font-size: 13px;
     }
 
-    .footer-links { display: flex; gap: 28px; }
-
-    @media (max-width: 1050px) {
-      .nav, .header-btn { display: none; }
-      .mobile-menu-icon { display: grid; }
-      .brand { min-width: auto; }
-      .hero-inner { grid-template-columns: 1fr; padding-top: 58px; text-align: left; }
-      .hero-visual { min-height: 290px; }
-      .image-placeholder { min-height: 320px; }
-      .categories { grid-template-columns: repeat(3, 1fr); }
-      .inventory-grid { grid-template-columns: repeat(2, 1fr); }
-      .why-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 0; }
-      .why-card:nth-child(2) { border-right: 0; }
-      .footer-main { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 720px) {
-      .container { width: min(100% - 28px, var(--container)); }
-      .header-inner { min-height: 76px; }
-      .logo-placeholder { width: 54px; height: 54px; font-size: 9px; }
-      .brand-text { font-size: 15px; letter-spacing: 5px; }
-      h1 { letter-spacing: -2px; }
-      .hero-inner { min-height: auto; padding: 46px 0 50px; }
-      .button-row { flex-direction: column; }
-      .btn { width: 100%; }
-      .hero-visual { min-height: 230px; }
-      .image-placeholder { min-height: 260px; }
-      .section { padding: 58px 0; }
-      .section-head { margin-bottom: 28px; }
-      .categories { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .category-card { min-height: 170px; padding: 18px 10px; }
-      .truck-icon { width: 82px; height: 52px; }
-      .split-head { align-items: flex-start; flex-direction: column; }
-      .inventory-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
-      .why-card { border-right: 0; border-bottom: 1px solid #d9dde2; padding: 22px 18px; }
-      .why-card:last-child { border-bottom: 0; }
-      .cta { padding-bottom: 52px; }
-      .cta-box { flex-direction: column; align-items: flex-start; padding: 32px 24px; }
-      .footer-main { grid-template-columns: 1fr; gap: 30px; }
-      .footer-bottom { flex-direction: column; }
-      .footer-links { flex-wrap: wrap; }
-    }
-  
-
-    /* Header and footer redesign overrides */
-    .site-header {
-      background: linear-gradient(180deg, #111111 0%, #050505 100%);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 16px 44px rgba(0,0,0,.22);
-    }
-
-    .header-top {
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.02);
-    }
-
-    .header-top-inner {
-      min-height: 42px;
+    .footer-links {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      color: rgba(255,255,255,.72);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-    }
-
-    .header-top-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .header-top a { color: rgba(255,255,255,.82); }
-
-    .header-inner {
-      min-height: 116px;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 26px;
-      padding: 16px 0;
-    }
-
-    .header-side {
-      display: flex;
-      align-items: center;
       gap: 28px;
     }
 
-    .header-side.right {
-      justify-content: flex-end;
-    }
-
-    .brand {
-      min-width: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .logo-shell {
-      width: 94px;
-      height: 94px;
-      border-radius: 50%;
-      padding: 9px;
-      background:
-        radial-gradient(circle at 35% 25%, rgba(255,255,255,.14), rgba(255,255,255,.04) 45%, rgba(0,0,0,.2) 100%);
-      border: 1px solid rgba(255,255,255,.20);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.10),
-        inset 0 0 0 1px rgba(255,255,255,.04),
-        0 18px 34px rgba(0,0,0,.30);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex: 0 0 auto;
-    }
-
-    .logo-shell img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      transform: none;
-    }
-
-    .brand-copy,
-    .footer-brand-copy {
-      display: grid;
-      gap: 3px;
-    }
-
-    .brand-copy {
-      text-align: center;
-    }
-
-    .brand-kicker {
-      color: rgba(255,255,255,.56);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2.6px;
-      text-transform: uppercase;
-    }
-
-    .brand-name {
-      color: #fff;
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: 6px;
-      line-height: 1;
-    }
-
-    .nav {
-      gap: 26px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .8px;
-    }
-
-    .nav a {
-      color: rgba(255,255,255,.85);
-      padding: 10px 0;
-    }
-
-    .nav a.active::after,
-    .nav a:hover::after {
-      bottom: 0;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(255,255,255,.85), rgba(255,255,255,.4));
-    }
-
-    .header-btn {
-      min-height: 48px;
-      padding: 0 22px;
-      border-radius: 999px;
-      background: #ffffff;
-      color: #050505;
-      border: 1px solid #ffffff;
-      box-shadow: 0 14px 28px rgba(0,0,0,.18);
-    }
-
-    .header-btn:hover {
-      background: transparent;
-      color: #ffffff;
-      border-color: rgba(255,255,255,.55);
-      transform: translateY(-2px);
-    }
-
-    .mobile-menu-icon {
-      display: none;
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.18);
-    }
-
-    .footer-logo-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .footer-logo-shell {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      padding: 7px;
-    }
-
-    .footer-brand-copy .brand-name {
-      font-size: 17px;
-      letter-spacing: 5px;
-    }
-
-    .footer-brand-copy .brand-kicker {
-      font-size: 9px;
-      letter-spacing: 2.1px;
-    }
+    /* ==========================================================
+       RESPONSIVE
+    ========================================================== */
 
     @media (max-width: 1050px) {
-      .header-top { display: none; }
+      .header-top {
+        display: none;
+      }
+
       .header-inner {
-        grid-template-columns: 1fr auto;
-        min-height: 92px;
-        padding: 14px 0;
+        min-height: 86px;
       }
-      .header-side.left,
-      .header-side.right .nav,
-      .header-btn { display: none; }
-      .header-side.right {
-        display: flex;
-        justify-content: flex-end;
+
+      .site-header.is-scrolled .header-inner {
+        min-height: 72px;
       }
-      .mobile-menu-icon { display: grid; }
+
       .brand {
-        justify-self: start;
-        flex-direction: row;
-        align-items: center;
-        gap: 14px;
+        min-width: auto;
       }
-      .brand-copy { text-align: left; }
-      .hero-inner { grid-template-columns: 1fr; padding-top: 58px; text-align: left; }
-      .hero-visual { min-height: 290px; }
-      .image-placeholder { min-height: 320px; }
-      .categories { grid-template-columns: repeat(3, 1fr); }
-      .inventory-grid { grid-template-columns: repeat(2, 1fr); }
-      .why-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 0; }
-      .why-card:nth-child(2) { border-right: 0; }
-      .footer-main { grid-template-columns: 1fr 1fr; }
+
+      .nav,
+      .header-btn {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: grid;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding-top: 58px;
+        text-align: left;
+      }
+
+      .hero-visual {
+        min-height: 290px;
+      }
+
+      .image-placeholder {
+        min-height: 320px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .inventory-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px 0;
+      }
+
+      .why-card:nth-child(2) {
+        border-right: 0;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 720px) {
+      .container {
+        width: min(100% - 28px, var(--container));
+      }
+
       .header-inner {
-        min-height: 82px;
+        min-height: 78px;
         gap: 14px;
       }
-      .brand { gap: 12px; }
-      .logo-shell {
-        width: 64px;
-        height: 64px;
-        padding: 6px;
-        border-radius: 50%;
+
+      .site-header.is-scrolled .header-inner {
+        min-height: 66px;
       }
+
+      .logo-shell {
+        width: 58px;
+        height: 58px;
+        padding: 3px;
+      }
+
+      .site-header.is-scrolled .logo-shell {
+        width: 50px;
+        height: 50px;
+      }
+
+      .brand {
+        gap: 11px;
+      }
+
       .brand-kicker {
         font-size: 8px;
-        letter-spacing: 1.8px;
+        letter-spacing: 1.7px;
       }
+
       .brand-name {
-        font-size: 14px;
-        letter-spacing: 3.6px;
+        font-size: 13px;
+        letter-spacing: 3px;
       }
+
+      .site-header.is-scrolled .brand-kicker {
+        display: none;
+      }
+
+      .site-header.is-scrolled .brand-name {
+        font-size: 12px;
+        letter-spacing: 2.7px;
+      }
+
+      .mobile-menu-btn {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero-inner {
+        min-height: auto;
+        padding: 46px 0 50px;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 230px;
+      }
+
+      .image-placeholder {
+        min-height: 260px;
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .section-head {
+        margin-bottom: 28px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .category-card {
+        min-height: 170px;
+        padding: 18px 10px;
+      }
+
+      .truck-icon {
+        width: 82px;
+        height: 52px;
+      }
+
+      .split-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .inventory-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-card {
+        border-right: 0;
+        border-bottom: 1px solid #d9dde2;
+        padding: 22px 18px;
+      }
+
+      .why-card:last-child {
+        border-bottom: 0;
+      }
+
+      .cta {
+        padding-bottom: 52px;
+      }
+
+      .cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px 24px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
       .footer-logo-shell {
-        width: 62px;
-        height: 62px;
+        width: 58px;
+        height: 58px;
       }
+
       .footer-brand-copy .brand-name {
-        font-size: 14px;
-        letter-spacing: 3.4px;
+        font-size: 13px;
+        letter-spacing: 3px;
       }
+
       .footer-brand-copy .brand-kicker {
         font-size: 8px;
         letter-spacing: 1.7px;
       }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
     }
 
+    @media (max-width: 430px) {
+      .brand-name {
+        font-size: 11px;
+        letter-spacing: 2.2px;
+      }
+
+      .brand-kicker {
+        display: none;
+      }
+
+      .logo-shell {
+        width: 52px;
+        height: 52px;
+      }
+
+      .site-header.is-scrolled .logo-shell {
+        width: 46px;
+        height: 46px;
+      }
+
+      .mobile-menu-btn {
+        width: 40px;
+        height: 40px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header class="site-header">
+  <!-- ==========================================================
+       HEADER
+       Edit logo image inside .logo-shell img src.
+  ========================================================== -->
+  <header class="site-header" id="siteHeader">
     <div class="header-top">
       <div class="container header-top-inner">
         <div>Premium Truck Inventory • Trusted Commercial Dealers</div>
+
         <div class="header-top-links">
           <a href="tel:18001234567">(800) 123-4567</a>
           <a href="mailto:info@loyaltraders.com">info@loyaltraders.com</a>
         </div>
       </div>
     </div>
-    <div class="container header-inner">
-      <div class="header-side left">
-        <nav class="nav" aria-label="Primary navigation left">
-          <a href="#" class="active">Home</a>
-          <a href="#inventory">Trucks</a>
-          <a href="#financing">Financing</a>
-        </nav>
-      </div>
 
+    <div class="container header-inner">
+      <!-- Logo / Brand -->
       <a class="brand" href="#" aria-label="Loyal Traders homepage">
-        <span class="logo-shell"><img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders Logo"></span>
+        <span class="logo-shell">
+          <img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders Logo">
+        </span>
+
         <span class="brand-copy">
           <span class="brand-kicker">Premium Truck Dealer</span>
           <span class="brand-name">LOYAL TRADERS</span>
         </span>
       </a>
 
-      <div class="header-side right">
-        <nav class="nav nav-right" aria-label="Primary navigation right">
+      <!-- Desktop Navigation -->
+      <div class="nav-wrap">
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#" class="active">Home</a>
+          <a href="#inventory">Trucks</a>
+          <a href="#financing">Financing</a>
           <a href="#about">About Us</a>
           <a href="#contact">Contact</a>
         </nav>
+
         <a class="header-btn" href="#inventory">View Trucks <span>→</span></a>
-        <div class="mobile-menu-icon" aria-hidden="true">☰</div>
+
+        <!-- Mobile Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+          ☰
+        </button>
       </div>
     </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <div class="container mobile-nav-inner">
+        <a href="#">Home</a>
+        <a href="#inventory">Trucks</a>
+        <a href="#financing">Financing</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
   </header>
 
   <main>
+    <!-- ==========================================================
+         HERO SECTION
+    ========================================================== -->
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
           <div class="eyebrow">Trusted Truck Dealers</div>
           <h1>Find the Right Truck for Your Business</h1>
           <p>Quality commercial trucks, work trucks, and heavy-duty vehicles ready to keep your business moving forward.</p>
+
           <div class="button-row">
             <a class="btn btn-dark" href="#inventory">Browse Trucks <span>→</span></a>
             <a class="btn btn-light" href="#contact">Contact Dealer <span>→</span></a>
@@ -975,6 +1227,9 @@
       </div>
     </section>
 
+    <!-- ==========================================================
+         TRUCK TYPES SECTION
+    ========================================================== -->
     <section class="section" id="truck-types">
       <div class="container">
         <div class="section-head">
@@ -985,56 +1240,82 @@
         <div class="categories">
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Pickup Trucks</h3><span class="arrow">→</span>
+            <h3>Pickup Trucks</h3>
+            <span class="arrow">→</span>
           </a>
+
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Box Trucks</h3><span class="arrow">→</span>
+            <h3>Box Trucks</h3>
+            <span class="arrow">→</span>
           </a>
+
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Dump Trucks</h3><span class="arrow">→</span>
+            <h3>Dump Trucks</h3>
+            <span class="arrow">→</span>
           </a>
+
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Flatbed Trucks</h3><span class="arrow">→</span>
+            <h3>Flatbed Trucks</h3>
+            <span class="arrow">→</span>
           </a>
+
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Cargo Vans</h3><span class="arrow">→</span>
+            <h3>Cargo Vans</h3>
+            <span class="arrow">→</span>
           </a>
+
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Semi Trucks</h3><span class="arrow">→</span>
+            <h3>Semi Trucks</h3>
+            <span class="arrow">→</span>
           </a>
+
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Tow Trucks</h3><span class="arrow">→</span>
+            <h3>Tow Trucks</h3>
+            <span class="arrow">→</span>
           </a>
+
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Refrigerated Trucks</h3><span class="arrow">→</span>
+            <h3>Refrigerated Trucks</h3>
+            <span class="arrow">→</span>
           </a>
+
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Tanker Trucks</h3><span class="arrow">→</span>
+            <h3>Tanker Trucks</h3>
+            <span class="arrow">→</span>
           </a>
+
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Utility Trucks</h3><span class="arrow">→</span>
+            <h3>Utility Trucks</h3>
+            <span class="arrow">→</span>
           </a>
+
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Bucket Trucks</h3><span class="arrow">→</span>
+            <h3>Bucket Trucks</h3>
+            <span class="arrow">→</span>
           </a>
+
           <a class="category-card" href="#inventory">
             <span class="truck-icon" aria-hidden="true"></span>
-            <h3>Crane Trucks</h3><span class="arrow">→</span>
+            <h3>Crane Trucks</h3>
+            <span class="arrow">→</span>
           </a>
         </div>
       </div>
     </section>
 
+    <!-- ==========================================================
+         INVENTORY SECTION
+    ========================================================== -->
     <section class="section inventory" id="inventory">
       <div class="container">
         <div class="split-head">
@@ -1042,45 +1323,139 @@
             <div class="eyebrow">Featured Inventory</div>
             <h2>Explore Our Trucks</h2>
           </div>
+
           <a class="btn btn-light" href="#">View All Trucks <span>→</span></a>
         </div>
 
         <div class="inventory-grid">
           <article class="truck-card">
-            <div class="truck-media"><span class="tag">New Arrival</span><div class="card-image-placeholder">Truck Image</div></div>
-            <div class="truck-content"><h3>2022 Volvo VNL 760</h3><div class="truck-type">Semi Truck</div><div class="specs"><span>▣ Diesel</span><span>⚙ Automatic</span><span>◉ 6x4</span></div><div class="price">$89,500</div><a class="details-btn" href="#">View Details <span>→</span></a></div>
+            <div class="truck-media">
+              <span class="tag">New Arrival</span>
+              <div class="card-image-placeholder">Truck Image</div>
+            </div>
+
+            <div class="truck-content">
+              <h3>2022 Volvo VNL 760</h3>
+              <div class="truck-type">Semi Truck</div>
+
+              <div class="specs">
+                <span>▣ Diesel</span>
+                <span>⚙ Automatic</span>
+                <span>◉ 6x4</span>
+              </div>
+
+              <div class="price">$89,500</div>
+              <a class="details-btn" href="#">View Details <span>→</span></a>
+            </div>
           </article>
+
           <article class="truck-card">
-            <div class="truck-media"><span class="tag">Low Miles</span><div class="card-image-placeholder">Truck Image</div></div>
-            <div class="truck-content"><h3>2021 Hino 268A</h3><div class="truck-type">Box Truck</div><div class="specs"><span>▣ Diesel</span><span>⚙ Automatic</span><span>◉ 4x2</span></div><div class="price">$64,900</div><a class="details-btn" href="#">View Details <span>→</span></a></div>
+            <div class="truck-media">
+              <span class="tag">Low Miles</span>
+              <div class="card-image-placeholder">Truck Image</div>
+            </div>
+
+            <div class="truck-content">
+              <h3>2021 Hino 268A</h3>
+              <div class="truck-type">Box Truck</div>
+
+              <div class="specs">
+                <span>▣ Diesel</span>
+                <span>⚙ Automatic</span>
+                <span>◉ 4x2</span>
+              </div>
+
+              <div class="price">$64,900</div>
+              <a class="details-btn" href="#">View Details <span>→</span></a>
+            </div>
           </article>
+
           <article class="truck-card">
-            <div class="truck-media"><span class="tag">Excellent</span><div class="card-image-placeholder">Truck Image</div></div>
-            <div class="truck-content"><h3>2020 Kenworth T880</h3><div class="truck-type">Dump Truck</div><div class="specs"><span>▣ Diesel</span><span>⚙ Automatic</span><span>◉ 6x4</span></div><div class="price">$119,900</div><a class="details-btn" href="#">View Details <span>→</span></a></div>
+            <div class="truck-media">
+              <span class="tag">Excellent</span>
+              <div class="card-image-placeholder">Truck Image</div>
+            </div>
+
+            <div class="truck-content">
+              <h3>2020 Kenworth T880</h3>
+              <div class="truck-type">Dump Truck</div>
+
+              <div class="specs">
+                <span>▣ Diesel</span>
+                <span>⚙ Automatic</span>
+                <span>◉ 6x4</span>
+              </div>
+
+              <div class="price">$119,900</div>
+              <a class="details-btn" href="#">View Details <span>→</span></a>
+            </div>
           </article>
+
           <article class="truck-card">
-            <div class="truck-media"><span class="tag">Great Value</span><div class="card-image-placeholder">Truck Image</div></div>
-            <div class="truck-content"><h3>2021 Ford F-550</h3><div class="truck-type">Pickup Truck</div><div class="specs"><span>▣ Diesel</span><span>⚙ Automatic</span><span>◉ 4x4</span></div><div class="price">$48,700</div><a class="details-btn" href="#">View Details <span>→</span></a></div>
+            <div class="truck-media">
+              <span class="tag">Great Value</span>
+              <div class="card-image-placeholder">Truck Image</div>
+            </div>
+
+            <div class="truck-content">
+              <h3>2021 Ford F-550</h3>
+              <div class="truck-type">Pickup Truck</div>
+
+              <div class="specs">
+                <span>▣ Diesel</span>
+                <span>⚙ Automatic</span>
+                <span>◉ 4x4</span>
+              </div>
+
+              <div class="price">$48,700</div>
+              <a class="details-btn" href="#">View Details <span>→</span></a>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- ==========================================================
+         WHY CHOOSE US SECTION
+    ========================================================== -->
     <section class="section-tight why" id="about">
       <div class="container">
         <div class="section-head">
           <div class="eyebrow">Why Choose Loyal Traders</div>
           <h2>Built on Trust. Driven by Quality.</h2>
         </div>
+
         <div class="why-grid">
-          <div class="why-card"><div class="why-icon" aria-hidden="true"></div><h3>Quality Checked Trucks</h3><p>Every truck is inspected for reliability, performance, and road-ready confidence.</p></div>
-          <div class="why-card"><div class="why-icon" aria-hidden="true"></div><h3>Dealer Support</h3><p>Our team is here to support you before, during, and after your purchase.</p></div>
-          <div class="why-card" id="financing"><div class="why-icon" aria-hidden="true"></div><h3>Financing Options</h3><p>Flexible financing solutions to help you get the truck your business needs.</p></div>
-          <div class="why-card"><div class="why-icon" aria-hidden="true"></div><h3>Nationwide Service</h3><p>We work with customers across the country to deliver the right trucks.</p></div>
+          <div class="why-card">
+            <div class="why-icon" aria-hidden="true"></div>
+            <h3>Quality Checked Trucks</h3>
+            <p>Every truck is inspected for reliability, performance, and road-ready confidence.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon" aria-hidden="true"></div>
+            <h3>Dealer Support</h3>
+            <p>Our team is here to support you before, during, and after your purchase.</p>
+          </div>
+
+          <div class="why-card" id="financing">
+            <div class="why-icon" aria-hidden="true"></div>
+            <h3>Financing Options</h3>
+            <p>Flexible financing solutions to help you get the truck your business needs.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon" aria-hidden="true"></div>
+            <h3>Nationwide Service</h3>
+            <p>We work with customers across the country to deliver the right trucks.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ==========================================================
+         CTA SECTION
+    ========================================================== -->
     <section class="cta" id="contact">
       <div class="container">
         <div class="cta-box">
@@ -1089,33 +1464,124 @@
             <h2>Looking for a specific truck?</h2>
             <p>Tell us what type of truck you need and our team will help you find the right option.</p>
           </div>
+
           <a class="btn btn-light" href="mailto:info@loyaltraders.com">Request Availability <span>→</span></a>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- ==========================================================
+       FOOTER
+  ========================================================== -->
   <footer class="site-footer">
     <div class="container footer-main">
       <div class="footer-about">
         <div class="footer-logo-row">
-          <span class="logo-shell footer-logo-shell"><img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders Logo"></span>
+          <span class="logo-shell footer-logo-shell">
+            <img src="https://raw.githubusercontent.com/Friedazebalili/Loyal-Traders/0dad71a89a3eb8dbd9c91e002211345a10a590bc/images/LT%20Logo%20-%20Silver%20on%20Dark.png" alt="Loyal Traders Logo">
+          </span>
+
           <span class="footer-brand-copy">
             <span class="brand-kicker">Premium Truck Dealer</span>
             <span class="brand-name">LOYAL TRADERS</span>
           </span>
         </div>
+
         <p>Your trusted source for quality commercial trucks and dependable service across the nation.</p>
-        <div class="socials"><span>f</span><span>◎</span><span>▶</span><span>in</span></div>
+
+        <div class="socials">
+          <span>f</span>
+          <span>◎</span>
+          <span>▶</span>
+          <span>in</span>
+        </div>
       </div>
-      <div class="footer-col"><h3>Quick Links</h3><ul><li><a href="#">Home</a></li><li><a href="#inventory">Trucks</a></li><li><a href="#financing">Financing</a></li><li><a href="#about">About Us</a></li><li><a href="#contact">Contact</a></li></ul></div>
-      <div class="footer-col"><h3>Truck Types</h3><ul><li>Pickup Trucks</li><li>Box Trucks</li><li>Dump Trucks</li><li>Flatbed Trucks</li><li>Cargo Vans</li><li>Semi Trucks</li></ul></div>
-      <div class="footer-col"><h3>Contact Us</h3><ul><li>☎ (800) 123-4567</li><li>✉ info@loyaltraders.com</li><li>⌖ 123 Truck Way,<br>Houston, TX 77001</li></ul></div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#inventory">Trucks</a></li>
+          <li><a href="#financing">Financing</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Truck Types</h3>
+        <ul>
+          <li>Pickup Trucks</li>
+          <li>Box Trucks</li>
+          <li>Dump Trucks</li>
+          <li>Flatbed Trucks</li>
+          <li>Cargo Vans</li>
+          <li>Semi Trucks</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>☎ (800) 123-4567</li>
+          <li>✉ info@loyaltraders.com</li>
+          <li>⌖ 123 Truck Way,<br>Houston, TX 77001</li>
+        </ul>
+      </div>
     </div>
+
     <div class="container footer-bottom">
       <div>© 2024 Loyal Traders. All rights reserved.</div>
-      <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
     </div>
   </footer>
+
+  <script>
+    /* ==========================================================
+       STICKY HEADER SCROLL EFFECT
+       Adds .is-scrolled when user scrolls down.
+    ========================================================== */
+    const siteHeader = document.getElementById('siteHeader');
+
+    function handleHeaderScroll() {
+      if (window.scrollY > 20) {
+        siteHeader.classList.add('is-scrolled');
+      } else {
+        siteHeader.classList.remove('is-scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', handleHeaderScroll);
+    handleHeaderScroll();
+
+    /* ==========================================================
+       MOBILE MENU
+       Opens/closes the dropdown on mobile.
+    ========================================================== */
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    mobileMenuBtn.addEventListener('click', function () {
+      const isOpen = mobileNav.classList.toggle('is-open');
+      mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      mobileMenuBtn.textContent = isOpen ? '×' : '☰';
+    });
+
+    /* Close mobile menu after clicking a link */
+    const mobileLinks = mobileNav.querySelectorAll('a');
+
+    mobileLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileNav.classList.remove('is-open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.textContent = '☰';
+      });
+    });
+  </script>
 </body>
 </html>
