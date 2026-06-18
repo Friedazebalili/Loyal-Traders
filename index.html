@@ -58,47 +58,39 @@
     }
 
     /* ==========================================================
-       WHITE PREMIUM HEADER
-       - Logo stays left
-       - Header is sticky
-       - Header becomes smaller on scroll
-       - Japanese content style
+       PREMIUM BLACK & WHITE HEADER
+       - Sticky but does NOT shrink on scroll
+       - Black top bar + white main header
+       - Cleaner logo, nav, and button style
+       - Designed to blend with the black/white website
     ========================================================== */
 
     .site-header {
       position: sticky;
       top: 0;
       z-index: 999;
-      background: rgba(255,255,255,.96);
-      color: #111;
-      border-bottom: 1px solid rgba(0,0,0,.08);
-      box-shadow: 0 10px 32px rgba(0,0,0,.06);
+      background: #ffffff;
+      color: #050505;
+      border-bottom: 1px solid rgba(0,0,0,.09);
+      box-shadow: 0 8px 24px rgba(0,0,0,.05);
       transition:
-        background .25s ease,
         box-shadow .25s ease,
         border-color .25s ease,
-        backdrop-filter .25s ease;
+        background .25s ease;
     }
 
     .site-header.is-scrolled {
-      background: rgba(255,255,255,.88);
-      backdrop-filter: blur(16px);
-      border-bottom-color: rgba(0,0,0,.10);
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(14px);
+      border-bottom-color: rgba(0,0,0,.14);
       box-shadow: 0 14px 34px rgba(0,0,0,.12);
     }
 
-    /* Top contact/info bar */
+    /* Black top bar */
     .header-top {
-      background: #f6f6f6;
-      border-bottom: 1px solid rgba(0,0,0,.07);
-      max-height: 40px;
-      overflow: hidden;
-      transition: max-height .25s ease, opacity .25s ease;
-    }
-
-    .site-header.is-scrolled .header-top {
-      max-height: 0;
-      opacity: 0;
+      background: #050505;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
     .header-top-inner {
@@ -107,11 +99,10 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      color: #555;
+      color: rgba(255,255,255,.82);
       font-size: 11px;
       font-weight: 800;
       letter-spacing: .8px;
-      text-transform: uppercase;
     }
 
     .header-top-links {
@@ -122,28 +113,22 @@
     }
 
     .header-top a {
-      color: #333;
+      color: rgba(255,255,255,.86);
       transition: color .2s ease;
     }
 
     .header-top a:hover {
-      color: #000;
+      color: #fff;
     }
 
     /* Main header row */
     .header-inner {
-      min-height: 90px;
+      min-height: 88px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 26px;
+      gap: 28px;
       padding: 12px 0;
-      transition: min-height .25s ease, padding .25s ease;
-    }
-
-    .site-header.is-scrolled .header-inner {
-      min-height: 70px;
-      padding: 7px 0;
     }
 
     /* Brand logo area */
@@ -151,38 +136,29 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      gap: 13px;
-      min-width: 210px;
+      gap: 14px;
+      min-width: 220px;
       flex: 0 0 auto;
     }
 
     /* Clean circle logo holder */
     .logo-shell {
-      width: 68px;
-      height: 68px;
+      width: 66px;
+      height: 66px;
       border-radius: 50%;
       padding: 3px;
       background:
         linear-gradient(145deg, #ffffff, #e9e9e9),
         #ffffff;
-      border: 1px solid rgba(0,0,0,.12);
+      border: 1px solid rgba(0,0,0,.13);
       box-shadow:
-        0 9px 22px rgba(0,0,0,.12),
+        0 8px 20px rgba(0,0,0,.12),
         inset 0 1px 0 rgba(255,255,255,.90);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       flex: 0 0 auto;
-      transition: width .25s ease, height .25s ease, box-shadow .25s ease;
-    }
-
-    .site-header.is-scrolled .logo-shell {
-      width: 52px;
-      height: 52px;
-      box-shadow:
-        0 7px 16px rgba(0,0,0,.10),
-        inset 0 1px 0 rgba(255,255,255,.90);
     }
 
     .logo-shell img {
@@ -196,24 +172,26 @@
       transform-origin: center;
     }
 
-    /* Shorter and cleaner logo text */
     .brand-copy {
-      display: flex;
-      align-items: center;
+      display: grid;
+      gap: 4px;
     }
 
     .brand-name {
-      color: #111;
+      color: #050505;
       font-size: 21px;
       font-weight: 900;
       letter-spacing: -.5px;
       line-height: 1;
       white-space: nowrap;
-      transition: font-size .25s ease, color .25s ease;
     }
 
-    .site-header.is-scrolled .brand-name {
-      font-size: 18px;
+    .brand-sub {
+      color: #707070;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      white-space: nowrap;
     }
 
     /* Desktop navigation */
@@ -221,51 +199,40 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 26px;
+      gap: 24px;
       flex: 1;
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 4px;
       font-size: 12px;
       font-weight: 900;
-      letter-spacing: .5px;
-      text-transform: uppercase;
+      letter-spacing: .4px;
+      padding: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: #f7f7f7;
     }
 
     .nav a {
       position: relative;
-      color: #4b4b4b;
-      padding: 10px 0;
-      transition: color .2s ease;
+      color: #444;
+      padding: 11px 14px;
+      border-radius: 999px;
+      transition:
+        color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
       white-space: nowrap;
     }
 
     .nav a:hover,
     .nav a.active {
-      color: #050505;
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      right: 50%;
-      bottom: 0;
-      height: 2px;
+      color: #fff;
       background: #050505;
-      border-radius: 20px;
-      opacity: 0;
-      transition: left .2s ease, right .2s ease, opacity .2s ease;
-    }
-
-    .nav a:hover::after,
-    .nav a.active::after {
-      left: 0;
-      right: 0;
-      opacity: 1;
+      box-shadow: 0 8px 18px rgba(0,0,0,.14);
     }
 
     .header-btn,
@@ -288,7 +255,7 @@
     }
 
     .header-btn {
-      min-height: 46px;
+      min-height: 48px;
       padding: 0 22px;
       border-radius: 999px;
       background: #050505;
@@ -296,12 +263,6 @@
       border: 1px solid #050505;
       box-shadow: 0 12px 26px rgba(0,0,0,.16);
       white-space: nowrap;
-      font-size: 12px;
-    }
-
-    .site-header.is-scrolled .header-btn {
-      min-height: 40px;
-      padding: 0 17px;
       font-size: 12px;
     }
 
@@ -329,6 +290,7 @@
       line-height: 1;
       cursor: pointer;
       place-items: center;
+      flex: 0 0 auto;
     }
 
     /* Mobile dropdown menu */
@@ -885,6 +847,20 @@
        RESPONSIVE
     ========================================================== */
 
+    @media (max-width: 1100px) {
+      .nav {
+        gap: 3px;
+      }
+
+      .nav a {
+        padding: 10px 11px;
+      }
+
+      .brand-sub {
+        display: none;
+      }
+    }
+
     @media (max-width: 1050px) {
       .header-top {
         display: none;
@@ -892,10 +868,6 @@
 
       .header-inner {
         min-height: 82px;
-      }
-
-      .site-header.is-scrolled .header-inner {
-        min-height: 68px;
       }
 
       .brand {
@@ -957,18 +929,9 @@
         gap: 12px;
       }
 
-      .site-header.is-scrolled .header-inner {
-        min-height: 64px;
-      }
-
       .logo-shell {
         width: 54px;
         height: 54px;
-      }
-
-      .site-header.is-scrolled .logo-shell {
-        width: 46px;
-        height: 46px;
       }
 
       .brand {
@@ -978,10 +941,6 @@
       .brand-name {
         font-size: 17px;
         letter-spacing: -.4px;
-      }
-
-      .site-header.is-scrolled .brand-name {
-        font-size: 15px;
       }
 
       .mobile-menu-btn {
@@ -1104,11 +1063,6 @@
         height: 48px;
       }
 
-      .site-header.is-scrolled .logo-shell {
-        width: 42px;
-        height: 42px;
-      }
-
       .mobile-menu-btn {
         width: 39px;
         height: 39px;
@@ -1120,7 +1074,8 @@
 <body>
   <!-- ==========================================================
        HEADER
-       White Japanese website header design.
+       Black and white premium header.
+       Sticky but no shrinking on scroll.
   ========================================================== -->
   <header class="site-header" id="siteHeader">
     <div class="header-top">
@@ -1143,6 +1098,7 @@
 
         <span class="brand-copy">
           <span class="brand-name">Loyal Traders</span>
+          <span class="brand-sub">Truck Dealer Japan</span>
         </span>
       </a>
 
@@ -1516,7 +1472,7 @@
   <script>
     /* ==========================================================
        STICKY HEADER SCROLL EFFECT
-       Adds .is-scrolled when the user scrolls down.
+       Header stays same size. We only add shadow/blur on scroll.
     ========================================================== */
     const siteHeader = document.getElementById('siteHeader');
 
