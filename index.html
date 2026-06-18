@@ -15,25 +15,24 @@
   <style>
     /* ==========================================================
        GLOBAL VARIABLES
-       Premium theme: black, white, deep navy, champagne gold.
+       Theme: premium automotive black, white, graphite, racing red.
     ========================================================== */
     :root {
       --black: #050505;
       --black-soft: #111111;
+      --graphite: #1E2329;
+      --graphite-light: #343B44;
       --text: #0b0b0b;
       --muted: #6c7178;
       --line: #e5e7eb;
       --white: #ffffff;
       --off-white: #f7f7f7;
-      --silver: #c9c9c9;
+      --steel: #EEF1F4;
 
-      /* Premium lively accent theme */
-      --accent: #0B1F3A;
-      --accent-dark: #061426;
-      --accent-light: #163A68;
-      --gold: #C9A24A;
-      --gold-light: #E6C66A;
-      --cream: #F8F5EE;
+      /* Premium automotive accent */
+      --accent: #D71920;
+      --accent-dark: #9F1017;
+      --accent-soft: #FFF0F1;
 
       --shadow: 0 22px 60px rgba(0,0,0,.10);
       --radius: 18px;
@@ -68,7 +67,6 @@
 
     /* ==========================================================
        PREMIUM HEADER
-       Clean white header with black/navy/gold accents.
     ========================================================== */
 
     .site-header {
@@ -94,9 +92,9 @@
 
     .header-top {
       background:
-        linear-gradient(90deg, #050505 0%, var(--accent-dark) 55%, #050505 100%);
+        linear-gradient(90deg, #050505 0%, var(--graphite) 52%, #050505 100%);
       color: #fff;
-      border-bottom: 2px solid var(--gold);
+      border-bottom: 2px solid var(--accent);
       position: relative;
     }
 
@@ -119,7 +117,7 @@
       height: 7px;
       margin-right: 8px;
       border-radius: 50%;
-      background: var(--gold-light);
+      background: var(--accent);
       vertical-align: 1px;
     }
 
@@ -136,7 +134,7 @@
     }
 
     .header-top a:hover {
-      color: var(--gold-light);
+      color: #fff;
     }
 
     .header-inner {
@@ -168,7 +166,7 @@
       border: 1px solid rgba(0,0,0,.13);
       box-shadow:
         0 8px 20px rgba(0,0,0,.12),
-        0 0 0 4px rgba(201,162,74,.10),
+        0 0 0 4px rgba(215,25,32,.08),
         inset 0 1px 0 rgba(255,255,255,.90);
       display: inline-flex;
       align-items: center;
@@ -247,10 +245,10 @@
     .nav a:hover,
     .nav a.active {
       color: #fff;
-      background: var(--accent);
+      background: var(--graphite);
       box-shadow:
         0 8px 18px rgba(0,0,0,.14),
-        inset 0 -2px 0 var(--gold);
+        inset 0 -2px 0 var(--accent);
     }
 
     .header-btn,
@@ -276,20 +274,20 @@
       min-height: 48px;
       padding: 0 22px;
       border-radius: 999px;
-      background: var(--accent);
+      background: var(--graphite);
       color: #fff;
-      border: 1px solid var(--accent);
-      box-shadow: 0 12px 26px rgba(11,31,58,.18);
+      border: 1px solid var(--graphite);
+      box-shadow: 0 12px 26px rgba(30,35,41,.18);
       white-space: nowrap;
       font-size: 12px;
     }
 
     .header-btn:hover {
-      background: #050505;
+      background: var(--accent);
       color: #fff;
-      border-color: #050505;
+      border-color: var(--accent);
       transform: translateY(-2px);
-      box-shadow: 0 16px 32px rgba(0,0,0,.20);
+      box-shadow: 0 16px 32px rgba(215,25,32,.22);
     }
 
     .btn:hover {
@@ -301,8 +299,8 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      background: var(--accent);
-      border: 1px solid var(--accent);
+      background: var(--graphite);
+      border: 1px solid var(--graphite);
       color: #fff;
       font-size: 23px;
       line-height: 1;
@@ -336,9 +334,9 @@
     }
 
     .mobile-nav a:hover {
-      background: var(--accent);
+      background: var(--graphite);
       color: #fff;
-      border-color: var(--accent);
+      border-color: var(--graphite);
     }
 
     .mobile-nav.is-open {
@@ -347,15 +345,14 @@
 
     /* ==========================================================
        HERO
-       Premium cream/white background with navy and gold accent.
     ========================================================== */
 
     .hero {
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at 78% 22%, rgba(201,162,74,.13), transparent 28%),
-        linear-gradient(115deg, #fff 0%, #fff 43%, var(--cream) 100%);
+        radial-gradient(circle at 80% 24%, rgba(215,25,32,.08), transparent 28%),
+        linear-gradient(115deg, #fff 0%, #fff 44%, var(--steel) 100%);
       border-bottom: 1px solid #eeeeee;
     }
 
@@ -394,7 +391,7 @@
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      color: var(--accent);
+      color: var(--graphite);
     }
 
     .hero .eyebrow::before {
@@ -402,7 +399,7 @@
       width: 28px;
       height: 3px;
       border-radius: 99px;
-      background: var(--gold);
+      background: var(--accent);
     }
 
     h1 {
@@ -429,7 +426,7 @@
       padding: 11px 14px;
       border-radius: 999px;
       background: #fff;
-      border: 1px solid rgba(201,162,74,.32);
+      border: 1px solid rgba(215,25,32,.18);
       color: #3d4852;
       font-size: 12px;
       font-weight: 800;
@@ -440,7 +437,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--gold);
+      background: var(--accent);
       display: inline-block;
       flex: 0 0 auto;
     }
@@ -458,16 +455,16 @@
     }
 
     .btn-dark {
-      background: var(--accent);
+      background: var(--graphite);
       color: #fff;
-      border-color: var(--accent);
-      box-shadow: 0 18px 35px rgba(11,31,58,.18);
+      border-color: var(--graphite);
+      box-shadow: 0 18px 35px rgba(30,35,41,.18);
     }
 
     .btn-dark:hover {
-      background: #050505;
-      border-color: #050505;
-      box-shadow: 0 18px 35px rgba(0,0,0,.22);
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 18px 35px rgba(215,25,32,.20);
     }
 
     .btn-light {
@@ -476,9 +473,9 @@
     }
 
     .btn-light:hover {
-      border-color: var(--gold);
+      border-color: var(--accent);
       color: var(--accent);
-      box-shadow: 0 16px 30px rgba(201,162,74,.13);
+      box-shadow: 0 16px 30px rgba(215,25,32,.10);
     }
 
     .hero-visual {
@@ -494,8 +491,8 @@
       border: 1px solid rgba(0,0,0,.10);
       border-radius: 26px;
       background:
-        radial-gradient(circle at 68% 30%, rgba(201,162,74,.14), transparent 30%),
-        linear-gradient(135deg, rgba(255,255,255,.94), rgba(248,245,238,.96)),
+        radial-gradient(circle at 70% 30%, rgba(215,25,32,.08), transparent 30%),
+        linear-gradient(135deg, rgba(255,255,255,.95), rgba(238,241,244,.96)),
         repeating-linear-gradient(45deg, transparent 0 14px, rgba(0,0,0,.025) 14px 28px);
       display: grid;
       place-items: center;
@@ -513,7 +510,7 @@
       position: absolute;
       inset: 28px;
       border-radius: 20px;
-      border: 1px dashed rgba(11,31,58,.25);
+      border: 1px dashed rgba(30,35,41,.22);
     }
 
     .image-placeholder::after {
@@ -523,7 +520,7 @@
       right: 26px;
       bottom: 0;
       height: 4px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
+      background: linear-gradient(90deg, var(--graphite), var(--accent));
       opacity: .95;
     }
 
@@ -591,14 +588,14 @@
       position: absolute;
       inset: auto 0 0 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
+      background: linear-gradient(90deg, var(--graphite), var(--accent));
       transform: scaleX(0);
       transform-origin: left;
       transition: transform .22s ease;
     }
 
     .category-card:hover {
-      border-color: rgba(201,162,74,.38);
+      border-color: rgba(215,25,32,.25);
       box-shadow: 0 22px 55px rgba(0,0,0,.10);
       transform: translateY(-4px);
     }
@@ -626,7 +623,7 @@
     .arrow {
       font-size: 19px;
       line-height: 1;
-      color: var(--gold);
+      color: var(--accent);
     }
 
     /* ==========================================================
@@ -635,7 +632,7 @@
 
     .inventory {
       background:
-        linear-gradient(180deg, #fff 0%, #fafafa 62%, var(--cream) 100%);
+        linear-gradient(180deg, #fff 0%, #fafafa 62%, var(--steel) 100%);
     }
 
     .split-head {
@@ -667,7 +664,7 @@
 
     .truck-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(201,162,74,.42);
+      border-color: rgba(215,25,32,.25);
       box-shadow: 0 24px 55px rgba(0,0,0,.10);
     }
 
@@ -720,8 +717,7 @@
       font-size: 11px;
       font-weight: 900;
       z-index: 2;
-      box-shadow: 0 10px 22px rgba(11,31,58,.18);
-      border: 1px solid rgba(201,162,74,.45);
+      box-shadow: 0 10px 22px rgba(215,25,32,.18);
     }
 
     .truck-content {
@@ -771,20 +767,19 @@
     }
 
     .details-btn:hover {
-      background: var(--accent);
+      background: var(--graphite);
       color: #fff;
-      border-color: var(--accent);
+      border-color: var(--graphite);
     }
 
     /* ==========================================================
        PURCHASE FLOW SECTION
-       Black section with gold accents.
     ========================================================== */
 
     .flow-section {
       position: relative;
       background:
-        radial-gradient(circle at 15% 20%, rgba(201,162,74,.10), transparent 28%),
+        radial-gradient(circle at 15% 20%, rgba(215,25,32,.10), transparent 28%),
         #050505;
       color: #fff;
       overflow: hidden;
@@ -808,7 +803,7 @@
     }
 
     .flow-section .section-head .eyebrow {
-      color: var(--gold-light);
+      color: #ffb7ba;
     }
 
     .flow-section .section-head h2 {
@@ -846,14 +841,14 @@
       position: absolute;
       inset: auto 0 0 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--accent-light), var(--gold));
+      background: linear-gradient(90deg, var(--graphite-light), var(--accent));
       opacity: .95;
     }
 
     .flow-card:hover {
       transform: translateY(-5px);
       background: rgba(255,255,255,.10);
-      border-color: rgba(201,162,74,.35);
+      border-color: rgba(215,25,32,.28);
     }
 
     .flow-card::after {
@@ -960,7 +955,6 @@
 
     /* ==========================================================
        LOCATION / MAP SECTION
-       Proper icons. Clean premium location section.
     ========================================================== */
 
     .location-section {
@@ -981,7 +975,7 @@
       border-radius: 18px;
       padding: 34px;
       background:
-        linear-gradient(135deg, #ffffff, var(--cream));
+        linear-gradient(135deg, #ffffff, var(--steel));
       box-shadow: 0 18px 45px rgba(0,0,0,.055);
       position: relative;
       overflow: hidden;
@@ -994,7 +988,7 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
+      background: linear-gradient(90deg, var(--graphite), var(--accent));
     }
 
     .location-content .eyebrow {
@@ -1033,7 +1027,7 @@
 
     .location-item:hover {
       transform: translateY(-2px);
-      border-color: rgba(201,162,74,.35);
+      border-color: rgba(215,25,32,.24);
       box-shadow: 0 14px 30px rgba(0,0,0,.07);
     }
 
@@ -1052,7 +1046,7 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: var(--accent);
+      background: var(--graphite);
       color: #fff;
       display: grid;
       place-items: center;
@@ -1063,8 +1057,8 @@
     }
 
     .location-item:hover .location-icon {
-      background: #050505;
-      box-shadow: 0 12px 22px rgba(0,0,0,.18);
+      background: var(--accent);
+      box-shadow: 0 12px 22px rgba(215,25,32,.18);
     }
 
     .map-wrap {
@@ -1082,7 +1076,7 @@
       position: absolute;
       inset: 0;
       border-radius: 18px;
-      box-shadow: inset 0 0 0 4px rgba(201,162,74,.04);
+      box-shadow: inset 0 0 0 4px rgba(215,25,32,.035);
       z-index: 1;
       pointer-events: none;
     }
@@ -1098,7 +1092,6 @@
 
     /* ==========================================================
        CTA SECTION
-       Navy/black CTA with gold accent line.
     ========================================================== */
 
     .cta {
@@ -1111,7 +1104,7 @@
       border-radius: 12px;
       min-height: 170px;
       background:
-        linear-gradient(90deg, rgba(0,0,0,.96), rgba(11,31,58,.84)),
+        linear-gradient(90deg, rgba(0,0,0,.96), rgba(30,35,41,.84)),
         radial-gradient(circle at 85% 55%, #444, #111 55%, #020202);
       color: #fff;
       display: flex;
@@ -1138,7 +1131,7 @@
       right: 52px;
       bottom: 0;
       height: 4px;
-      background: linear-gradient(90deg, var(--accent-light), var(--gold));
+      background: linear-gradient(90deg, var(--graphite-light), var(--accent));
       opacity: .95;
     }
 
@@ -1149,7 +1142,7 @@
     }
 
     .cta-content .eyebrow {
-      color: var(--gold-light);
+      color: #ffb7ba;
       margin-bottom: 6px;
     }
 
@@ -1171,7 +1164,7 @@
 
     .site-footer {
       background:
-        radial-gradient(circle at top left, rgba(201,162,74,.10), transparent 26%),
+        radial-gradient(circle at top left, rgba(215,25,32,.10), transparent 26%),
         radial-gradient(circle at top left, #171717, #030303 55%, #000);
       color: #fff;
     }
@@ -1199,7 +1192,7 @@
       border: 1px solid rgba(255,255,255,.22);
       box-shadow:
         0 10px 24px rgba(0,0,0,.34),
-        0 0 0 4px rgba(201,162,74,.08),
+        0 0 0 4px rgba(215,25,32,.08),
         inset 0 1px 0 rgba(255,255,255,.12);
     }
 
@@ -1244,10 +1237,10 @@
     }
 
     .socials span:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: #050505;
-      box-shadow: 0 10px 20px rgba(201,162,74,.20);
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(215,25,32,.20);
     }
 
     .footer-col h3 {
@@ -1265,7 +1258,7 @@
     }
 
     .footer-col a:hover {
-      color: var(--gold-light);
+      color: #ffb7ba;
     }
 
     .footer-bottom {
@@ -1284,7 +1277,7 @@
     }
 
     .footer-links a:hover {
-      color: var(--gold-light);
+      color: #ffb7ba;
     }
 
     /* ==========================================================
