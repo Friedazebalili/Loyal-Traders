@@ -56,6 +56,27 @@
       color: var(--text);
       background: var(--white);
       line-height: 1.5;
+      word-break: normal;
+      overflow-wrap: anywhere;
+      line-break: strict;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      text-wrap: pretty;
+    }
+
+    h1,
+    h2,
+    .section-head p,
+    .flow-section .section-head p,
+    .location-content p,
+    .cta p,
+    .why-card p,
+    .hero-text p {
+      text-wrap: balance;
     }
 
     a {
@@ -155,7 +176,7 @@
       align-items: center;
       justify-content: flex-start;
       gap: 14px;
-      min-width: 220px;
+      min-width: 300px;
       flex: 0 0 auto;
     }
 
@@ -197,10 +218,10 @@
 
     .brand-name {
       color: #050505;
-      font-size: 21px;
+      font-size: 30px;
       font-weight: 900;
-      letter-spacing: -.5px;
-      line-height: 1;
+      letter-spacing: -1px;
+      line-height: .95;
       white-space: nowrap;
     }
 
@@ -419,8 +440,9 @@
     .hero-text p {
       color: #555b62;
       font-size: 17px;
-      max-width: 540px;
+      max-width: 560px;
       margin: 0 0 34px;
+      line-height: 1.85;
     }
 
     .hero-note {
@@ -550,9 +572,16 @@
     .split-head h2 {
       margin: 0;
       font-size: clamp(31px, 3vw, 44px);
-      line-height: 1.18;
-      letter-spacing: -1.5px;
+      line-height: 1.22;
+      letter-spacing: -1.2px;
       font-weight: 900;
+    }
+
+    .section-head p {
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.9;
     }
 
     .section-head .eyebrow,
@@ -817,10 +846,12 @@
     }
 
     .flow-section .section-head p {
-      max-width: 640px;
+      max-width: 680px;
       margin: 16px auto 0;
       color: rgba(255,255,255,.72);
       font-size: 15px;
+      line-height: 1.9;
+      letter-spacing: .01em;
     }
 
     .flow-grid {
@@ -957,6 +988,7 @@
       margin: 0;
       color: #5f656d;
       font-size: 14px;
+      line-height: 1.85;
     }
 
     /* ==========================================================
@@ -1012,6 +1044,7 @@
       margin: 0 0 24px;
       color: #5f656d;
       font-size: 15px;
+      line-height: 1.9;
     }
 
     .location-list {
@@ -1160,8 +1193,9 @@
 
     .cta p {
       margin: 0;
-      max-width: 580px;
+      max-width: 620px;
       color: #d4d4d4;
+      line-height: 1.85;
     }
 
     /* ==========================================================
@@ -1391,11 +1425,12 @@
 
       .brand {
         gap: 10px;
+        min-width: 0;
       }
 
       .brand-name {
-        font-size: 17px;
-        letter-spacing: -.4px;
+        font-size: clamp(22px, 6vw, 28px);
+        letter-spacing: -.8px;
       }
 
       .mobile-menu-btn {
@@ -1405,7 +1440,33 @@
       }
 
       h1 {
-        letter-spacing: -2px;
+        letter-spacing: -1.4px;
+        line-height: 1.13;
+      }
+
+      .section-head h2,
+      .split-head h2,
+      .location-content h2,
+      .cta h2 {
+        line-height: 1.34;
+        letter-spacing: -.9px;
+        text-wrap: balance;
+      }
+
+      .section-head p,
+      .flow-section .section-head p,
+      .hero-text p,
+      .location-content p,
+      .cta p,
+      .why-card p,
+      .flow-card p {
+        line-height: 1.9;
+        text-wrap: balance;
+        overflow-wrap: anywhere;
+      }
+
+      .flow-section .section-head p {
+        max-width: 24em;
       }
 
       .hero-inner {
@@ -1535,7 +1596,8 @@
 
     @media (max-width: 430px) {
       .brand-name {
-        font-size: 15px;
+        font-size: clamp(20px, 6.2vw, 24px);
+        letter-spacing: -.7px;
       }
 
       .logo-shell {
