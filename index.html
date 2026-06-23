@@ -197,10 +197,10 @@
 
     .brand-name {
       color: #050505;
-      font-size: 21px;
+      font-size: clamp(28px, 2.7vw, 36px);
       font-weight: 900;
-      letter-spacing: -.5px;
-      line-height: 1;
+      letter-spacing: -1.1px;
+      line-height: .95;
       white-space: nowrap;
     }
 
@@ -1209,8 +1209,8 @@
 
     .footer-brand-copy .brand-name {
       color: #fff;
-      font-size: 18px;
-      letter-spacing: -.3px;
+      font-size: clamp(24px, 2.2vw, 32px);
+      letter-spacing: -1px;
     }
 
     .footer-about p,
@@ -1394,8 +1394,29 @@
       }
 
       .brand-name {
-        font-size: 17px;
-        letter-spacing: -.4px;
+        font-size: 24px;
+        letter-spacing: -.8px;
+      }
+
+      p,
+      .hero-text p,
+      .flow-section .section-head p,
+      .flow-card p,
+      .why-card p,
+      .location-content p,
+      .cta p,
+      .footer-about p,
+      .footer-col li,
+      .footer-col p {
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .section-head h2,
+      .split-head h2,
+      .location-content h2,
+      .cta h2 {
+        line-height: 1.22;
       }
 
       .mobile-menu-btn {
@@ -1521,7 +1542,7 @@
       }
 
       .footer-brand-copy .brand-name {
-        font-size: 17px;
+        font-size: 23px;
       }
 
       .footer-bottom {
@@ -1535,7 +1556,19 @@
 
     @media (max-width: 430px) {
       .brand-name {
-        font-size: 15px;
+        font-size: 21px;
+        letter-spacing: -.7px;
+      }
+
+      p,
+      .hero-text p,
+      .flow-section .section-head p,
+      .flow-card p,
+      .why-card p,
+      .location-content p,
+      .cta p {
+        font-size: 12.5px;
+        line-height: 1.68;
       }
 
       .logo-shell {
